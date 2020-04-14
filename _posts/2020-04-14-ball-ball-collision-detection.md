@@ -76,3 +76,11 @@ we are not interested in. Further simplifying gives us
 Now all we have to do is check whether \\(t_c\\) is positive, and we're done!
 
 ![figure](/assets/images/ball-02.svg "Fig. 1")
+
+# Conclusion
+
+While this method is only useful for ball-ball collisions, approximating objects
+with one or more balls enable us to predict with a certain degree of accuracy,
+whether the objects should collide in a given time step.
+For example this would prevent a very fast moving object from clipping through
+another in the given time step.
