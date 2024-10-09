@@ -4,6 +4,10 @@
 @import 'highlight-syntax';
 
 
+.text-link {
+    color: rgb(150, 220, 255);
+}
+
 // If a user adds a custom font, this component will stop it from bleeding into GitHub components:
 img[alt="figure"] {
 	max-width: 50%;
