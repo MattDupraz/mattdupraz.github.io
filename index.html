@@ -20,3 +20,19 @@ for certain geometric quantities.</p>
     <a class="text-link" href="/assets/documents/master_thesis.pdf">
         here</a>.
 </p>
+
+<h2>Music</h2>
+
+<div id="aplayer"></div>
+<script>
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    audio: [{
+        name: 'The improbable adventure of Arthur Dent',
+        artist: 'Matt Dupraz',
+        url: '/assets/audio/arthur_dent.mp3',
+        cover: '/assets/images/arthur_dent.jpg'
+    }],
+    theme: '#b7daff'
+});
+</script>
