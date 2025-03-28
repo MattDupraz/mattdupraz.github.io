@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tropical Linear Systems on an Interval</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+        <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 400px;
+            height: 50px;
+            margin: 50px auto;
+        }
+        .line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            transform: translateY(-50%);
+        }
+        .draggable {
+            cursor: grab;
+        }
+        .clickable {
+            cursor: pointer;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .divisor {
+            cursor: grab;
+        }
+        .ignore-events {
+            pointer-events: none;
+        }
+        </style>
+    </head>
+    <body>
+
+        <h2>Tropical linear systems of degree 2 on an interval</h2>
+
+        <!-- First image containing the interval and two chips -->
+        <svg width="500" height="150" viewBox="-0.05 -0.2 1.1 0.4" id="svgCanvas">
+            <!-- The Horizontal Line -->
+            <line id="line" x1="0" y1="0" x2="1" y2="0" stroke="black" stroke-width="0.01" />
+
+            <!-- Two Draggable Points -->
+            <circle id="P1" class="draggable" cx="0" cy="0" r="0.03" stroke-width="0.005" stroke="white" fill="red" />
+            <circle id="P2" class="draggable" cx="1" cy="0" r="0.03" stroke-width="0.005" stroke="white" fill="red" />
+        </svg>
+
+        <br/>
+        
+        <div style="margin:0px auto; width:800px">
+        <div style="float:left; margin:0;width:50%;">
+
+        <!-- Second image containing the visualization of the raitonal funciton -->
+        <svg id="functionGraphs" viewBox="-0.05 -0.05 1.1 1.1" width="350" height="350">
+            <polyline id="rationalFunction" points="0,0 1,0" stroke="black"
+            stroke-dasharray="0.03, 0.03" stroke-width="0.02" fill="none" />
+        </svg>
+
+        <br/>
+        <button onclick="saveSVG('functionGraphs')">Save SVG</button>
+        </div>
+
+        <div style="float:left; margin:0;width:50%;">
+        <!-- Third image containing the visualization of the complete linear system -->
+        <svg id="triangleSvg" viewBox="-0.05 -0.05 1.1 1.1" width="350" height="350">
+            <polygon id="triangle" class="clickable" points="0,1 1,1 1,0"
+            fill="powderblue" stroke="black" stroke-width="0"/>
+            <polygon id="tlsOutline" class="ignore-events" points="0,1 1,1 1,0"
+            fill="slategray" stroke="black" stroke-width="0.01"/>
+            <circle id="projection" class="ignore-events" cx="1" cy="0" r="0.015"
+            stroke="powderblue" stroke-width="0.005" fill="gray" />
+            <polyline id="projectionSegment" stroke="gray"
+            stroke-dasharray="0.03, 0.03" stroke-width="0.01" fill="none" />
+            <circle id="divisor" class="clickable" cx="1" cy="1" r="0.020"
+            stroke="darkred" stroke-width="0.02" fill="white" />
+        </svg>
+        <form>
+          <select name="type" id="type">
+            <option value="submodule">Tropical submodule</option>
+            <option value="series">Tropical linear series of rank 1</option>
+          </select>
+          <input type="button" onclick="resetGenerators()" value="Reset">
+        </form>
+        
+        <br />
+        <button onclick="saveSVG('triangleSvg')">Save SVG</button>
+        </div>
+        </div>
+        
+        <script>
+            const point1 = document.getElementById("P1");
+            const point2 = document.getElementById("P2");
+            const triangle = document.getElementById("triangle");
+            const ratFn = document.getElementById("rationalFunction");
+            const divisor = document.getElementById("divisor");
+            const projection = document.getElementById("projection");
+            const projectionSegment =
+                document.getElementById("projectionSegment");
+            const tlsOutline = document.getElementById("tlsOutline"); 
+
+            const functionGraphs = document.getElementById("functionGraphs");
+            const triangleSvg = document.getElementById("triangleSvg");
+
+            const generators = new Map();
+            const outlineSegments = new Map();
+
+            var handle = null;
+
+            var divisorPos = {x:0, y:0};
+            var projectionPos = {x:0, y:0};
+
+            // Tangent directions:
+            // |0|5| |
+            // |1|*|4|
+            // | |2|3|
+
+            function orderedMinimalGenerators() {
+                const gens = Array.from(generators.values());
+
+                const minGens = [];
+
+                for (let i = 0; i < generators.size; i++) {
+                    const gen1 = rationalFunctionToCoords(gens[i].coeffs);
+                    const others = [];
+                    const tangentDirections = new Array(6).fill(false);
+                    var first = 6;
+                    var last = -1;
+                    for (let j = 0; j < generators.size; j++) {
+                        if (i != j) {
+                            const gen2 = rationalFunctionToCoords(gens[j].coeffs);
+                            others.push(gen2);
+                            const tangentDir = getTangentDirection(gen1, gen2);
+                            tangentDirections[tangentDir] = true;
+                            first = Math.min(first, tangentDir);
+                            last = Math.max(last, tangentDir);
+                        }
+                    }
+                    var shift = first;
+                    var isInterior = false;
+                    if (last - first >= 3) {
+                        shift = last;
+                        for (let j = 3; j < 6; j++) {
+                            if (tangentDirections[(j + shift) % 6]) {
+                                isInterior = true;
+                            }
+                        }
+                    }
+
+                    if (isInterior) {
+                        continue;
+                    }
+
+                    minGens.push({coords: gen1, shift: shift});
+                }
+
+                // Create partial order matrix on generators
+                const ordering = Array(minGens.length).fill(-1);
+                for (let i = 0; i < minGens.length; i++) {
+                    const gen1 = minGens[i].coords;
+                    const shift = minGens[i].shift;
+                    const candidates = [];
+                    var minDir = 6;
+                    for (let j = 0; j < minGens.length; j++) {
+                        const gen2 = minGens[j].coords;
+                        if (i != j && getTangentDirection(gen1, gen2) == shift) {
+                            const tangentDir = (getTangentDirection(gen2, gen1) - shift + 6) % 6;
+                            minDir = Math.min(tangentDir, minDir);
+                            candidates.push({coords: gen2, index: j});
+                        }
+                    }
+
+                    var minDist = 1000;
+                    var maxDist = 0;
+                    var minCandidate = null;
+                    var maxCandidate = null;
+                    for (let j = 0; j < candidates.length; j++) {
+                        const gen2 = candidates[j].coords;
+                        const index = candidates[j].index;
+                        const tangentDir = (getTangentDirection(gen2, gen1) - shift + 6) % 6;
+                        if (tangentDir == minDir) {
+                            dist = getDistanceAlongTangent(gen1, gen2);
+                            if (dist < minDist) {
+                                minCandidate = index;
+                                minDist = dist;
+                            }
+                            if (dist > maxDist) {
+                                maxCandidate = index;
+                                maxDist = dist;
+                            }
+                        }
+                    }
+
+                    if (minDir == 4) {
+                        ordering[i] = maxCandidate;
+                    }
+                    else {
+                        ordering[i] = minCandidate;
+                    }
+                }
+
+                const sortedPoints = []
+                var currentIndex = 0;
+                for (let i = 0; i < minGens.length; i++) {
+                    sortedPoints.push(minGens[currentIndex].coords);
+                    currentIndex = ordering[currentIndex];
+                }
+
+                return sortedPoints;
+            }
+
+            function TLSpolygon() {
+                const gens = orderedMinimalGenerators();
+                const points = [];
+                for (let i = 0; i < gens.length; i++) {
+                    const gen1 = gens[i];
+                    const gen2 = gens[(i + 1) % gens.length];
+                    const [segmentPoints, fs] = getPointsOnSegmentFromCoords(gen1, gen2);
+                    for (let j = 0; j < segmentPoints.length - 1; j++) {
+                        points.push(segmentPoints[j]);
+                    }
+                }
+                return points;
+            }
+
+            function redrawTLSOutline() {
+                const points = TLSpolygon();
+                const pointsStrs = []
+                for (let i=0; i < points.length; i++) {
+                    const P = points[i]
+                    pointsStrs.push(`${P.x},${1 - P.y}`);
+                }
+
+                tlsOutline.setAttribute("points", pointsStrs.join(" "));
+            }
+
+            // Tangent directions:
+            // |0|5| |
+            // |1|*|4|
+            // | |2|3|
+            function getTangentDirection(A, B) {
+                const diff = {x: B.x - A.x, y: B.y - A.y};
+                const epsilon = 0.0005;
+                if (diff.x < 0 && Math.abs(diff.x + diff.y) < epsilon) {
+                    return 0;
+                } else if (diff.x > 0 && Math.abs(diff.y) < epsilon) {
+                    return 4;
+                } else if (diff.y < 0 && Math.abs(diff.x) < epsilon) {
+                    return 2;
+                } else if (diff.x > 0 && diff.y < 0) {
+                    return 3;
+                } else if (diff.y > 0 && diff.x > -diff.y) {
+                    return 5;
+                } else {
+                    return 1;
+                }
+            }
+
+            // Tangent directions:
+            // |0|5| |
+            // |1|*|4|
+            // | |2|3|
+            function getDistanceAlongTangent(A, B) {
+                const t = getTangentDirection(A, B);
+                const diff = {x: B.x - A.x, y: B.y - A.y};
+                if (t == 0) {
+                    return -diff.x;
+                } else if (t == 2) {
+                    return -diff.y;
+                } else if (t == 4) {
+                    return diff.x;
+                } else if (t == 1) {
+                    return -diff.x - Math.max(diff.y, 0);
+                } else if (t == 3) {
+                    return Math.min(diff.x, -diff.y);
+                } else if (t == 5) {
+                    return diff.y - Math.max(-diff.x, 0)
+                }
+            }
+
+            function updateOutline() {
+                const gens = Array.from(generators.values());
+                for (let i = 0; i < generators.size; i++) {
+                    const gen1 = gens[i].coeffs;
+                    for (let j = i + 1; j < generators.size; j++) {
+                        const gen2 = gens[j].coeffs;
+                        redrawOutline(outlineSegments.get(`${i}, ${j}`), gen1, gen2);
+                    }
+                }
+            }   
+
+            function getPointsOnSegmentFromCoords(coord1, coord2) {
+                const coeffs1 = coordsToRationalFunction(coord1);
+                const coeffs2 = coordsToRationalFunction(coord2);
+                return getPointsOnSegmentFromCoeffs(coeffs1, coeffs2);
+            }
+
+            function getPointsOnSegmentFromCoeffs(coeffs1, coeffs2) {
+                const n = coeffs1.length;
+                const xs = [0, 1]
+                xs.push(coeffs1[1] - coeffs1[0])
+                xs.push(1 - (coeffs1[1] - coeffs1[2]))
+                xs.push(0.5 * (1 +(coeffs1[2] - coeffs1[0])))
+                xs.push(coeffs2[1] - coeffs2[0])
+                xs.push(1 - (coeffs2[1] - coeffs2[2]))
+                xs.push(0.5 * (1 +(coeffs2[2] - coeffs2[0])))
+
+                const diffs = [];
+                for (let i=0; i < xs.length; i++) {
+                    const x = xs[i];
+                    const y1 = Math.min(coeffs1[0]+x, coeffs1[1], coeffs1[2]+(1-x))
+                    const y2 = Math.min(coeffs2[0]+x, coeffs2[1], coeffs2[2]+(1-x))
+                    diffs.push(y1 - y2);
+                }
+
+
+                diffs.sort((a, b) => b - a);
+                const fs = [];
+                for (let i=0; i < diffs.length; i++) {
+                    f = [];
+                    for (let j=0; j < n; j++) {
+                        f.push(Math.min(coeffs2[j] + diffs[i], coeffs1[j]));
+                    }
+                    fs.push(f)
+                }
+                const points = [];
+                for (let i=0; i < fs.length; i++) {
+                    const f = fs[i];
+                    const P = rationalFunctionToCoords(f)
+                    points.push(P);
+                }
+
+                return [points, fs];
+            }
+
+            function redrawOutline(obj, coeffs1, coeffs2) {
+                const [points, fs] = getPointsOnSegmentFromCoeffs(coeffs1, coeffs2);
+                const pointsStrs = []
+                for (let i=0; i < points.length; i++) {
+                    const P = points[i]
+                    pointsStrs.push(`${P.x},${1 - P.y}`);
+                }
+
+                if (obj != null) {
+                    obj.setAttribute("points",
+                        pointsStrs.join(" "));
+                }
+                return [fs, pointsStrs];
+            }
+
+            function normalizeRationalFunction(coeffs) {
+                const min = Math.min(...coeffs);
+                return coeffs.map(c => c - min);
+            }
+
+            function redrawRationalFunction(obj, coeffs) {
+                const x0 = 0;
+                const x1 = coeffs[1] - coeffs[0];
+                const x2 = 1 - (coeffs[1] - coeffs[2]);
+                const x3 = 1;
+
+                const y0 = coeffs[0]
+                const y1 = coeffs[1]
+                const y2 = coeffs[1]
+                const y3 = coeffs[2]
+
+                obj.setAttribute("points",
+                    `${x0},${1-y0} ${x1},${1-y1} ${x2},${1-y2} ${x3},${1-y3}`);
+            }
+
+            const colors = ["red", "green", "blue", "darkorange", "brown",
+                "darkseagreen", "deeppink", "violet"]
+
+            function addGenerator(coeffs, draggable) {
+                const polyline =
+                    document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+
+
+                const n = generators.size
+                color = colors.shift();
+
+                polyline.style.stroke = color;
+                polyline.style.fill = "none";
+                polyline.style.strokeWidth = 0.005;
+
+                coeffs = normalizeRationalFunction(coeffs);
+                redrawRationalFunction(polyline, coeffs);
+
+                functionGraphs.insertBefore(polyline, functionGraphs.firstChild);
+
+                coords = rationalFunctionToCoords(coeffs);
+                
+
+                for (let i = 0; i < generators.size; i++) {
+                    const segment =
+                        document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+                    segment.style.stroke = "black";
+                    segment.style.fill = "none";
+                    segment.style.strokeWidth = 0.01;
+
+                    triangleSvg.insertBefore(segment, triangle.nextSibling);
+                    outlineSegments.set(`${i}, ${n}`, segment);
+                }
+
+                const div =
+                    document.createElementNS("http://www.w3.org/2000/svg",
+                        "circle");
+                div.style.fill = color;
+                if (draggable) {
+                    div.style.stroke = "white";
+                    div.style.strokeWidth = 0.015;
+                    div.style.cursor = "grab";
+                    div.setAttribute("r", 0.03);
+                } else {
+                    div.style.stroke = "powderblue";
+                    div.style.strokeWidth = 0.005;
+                    div.setAttribute("r", 0.02);
+                }
+                div.setAttribute("cx", coords.x);
+                div.setAttribute("cy", 1 - coords.y);
+
+                triangleSvg.insertBefore(div, divisor);
+                generators.set(div, { coeffs: coeffs, ratFn: polyline,
+                    constCoeff: 0 });
+
+                if (draggable) {
+                    div.addEventListener("mousedown", divisorGrab);
+                }
+            }
+
+            function clearGenerators() {
+                if (handle != null) {
+                    handle.remove();
+                    handle = null;
+                }
+
+                const gens = Array.from(generators.keys());
+                for (let i = gens.length - 1; i >= 0; i--) {
+                    const gen = gens[i];
+                    colors.unshift(gen.style.fill);
+                    generators.get(gen).ratFn.remove();
+                    generators.delete(gen);
+                    gen.remove();
+                }
+                const outlines = Array.from(outlineSegments.keys());
+                for (let i = 0; i < outlines.length; i++) {
+                    outlineSegments.get(outlines[i]).remove();
+                    outlineSegments.delete(outlines[i]);
+                }
+            }
+
+            function initializeDefaultGenerators() { 
+                addGenerator([0, 0.4, 0], true);
+                addGenerator([0.15, 0.25, 0], true);
+                addGenerator([0, 0.25, 0.15], true);
+                redrawTLSOutline();
+                updateRationalFunction();
+            }
+
+            function initializeRankOneGenerators() {
+                addGenerator([0, 0.5, 0], false);
+                addGenerator([0.3, 0.3, 0], false);
+                addGenerator([0, 0.3, 0.3], false);
+                // Add grabber
+                
+                handle =
+                    document.createElementNS("http://www.w3.org/2000/svg",
+                        "circle");
+                handle.style.fill = "#ffffffa0";
+                handle.setAttribute("r", 0.04);
+                handle.setAttribute("cx", 0.7);
+                handle.setAttribute("cy", 0.7);
+                handle.style.cursor = "grab";
+                handle.addEventListener("mousedown", handleGrab);
+
+                triangleSvg.insertBefore(handle, divisor);
+
+                redrawTLSOutline();
+                updateRationalFunction();
+            }
+
+            function resetGenerators() {
+                const type = document.getElementById("type").value;
+
+                clearGenerators();
+                if (type == "series") {
+                    initializeRankOneGenerators();
+                } else {
+                    initializeDefaultGenerators();
+                }
+            }
+
+            initializeDefaultGenerators();
+
+
+            // Register click events (defined below)
+            triangle.addEventListener('mousedown', triangleMouseDown);
+            divisor.addEventListener('mousedown', triangleMouseDown);
+            point1.addEventListener('mousedown', startDrag);
+            point2.addEventListener('mousedown', startDrag);
+
+            triangleSvg.addEventListener("contextmenu", evt => evt.preventDefault());
+            point1.addEventListener("contextmenu", evt => evt.preventDefault());
+            point2.addEventListener("contextmenu", evt => evt.preventDefault());
+
+
+            // Translates the mouse position coordinates from the event to coordinates in the SVG viewBox
+            function getMousePosition(evt, svg) {
+                const CTM = svg.getScreenCTM();
+                return {
+                    x: (evt.clientX - CTM.e) / CTM.a,
+                    y: 1 - (evt.clientY - CTM.f) / CTM.d
+                };
+            }
+
+            // Set coordinates of divisor and clip to triangle, which is given by the coordinates (0,0), (1, 0), (1, 1).
+            function setDivisorCoordinates(div, coord) {
+                div.setAttribute("cx", coord.x);
+                div.setAttribute("cy", 1 - coord.y);     
+            }
+
+            // Set the coordinates of chips on the interval (non-clipped)
+            function updatePoints(coord) {
+                point1.setAttribute("cx", coord.x);
+                point2.setAttribute("cx", coord.y);
+            }
+
+            var selectedDivisor = null;
+            function divisorGrab(evt) {
+                evt.preventDefault();
+                if (evt.button == 0) {
+                    selectedDivisor = evt.target;
+                    selectedDivisor.style.cursor = "grabbing";
+                    document.addEventListener("mousemove", divisorMove);
+                    document.addEventListener("mouseup", divisorRelease);
+                } else if (evt.button == 2) {
+                    n = generators.size - 1
+                    for (let i = 0; i < n; i++) {
+                        outlineSegments.get(`${i}, ${n}`).remove();
+                        outlineSegments.delete(`${i}, ${n}`);
+                    }
+                    
+                    colors.unshift(evt.target.style.fill);
+                    generators.get(evt.target).ratFn.remove();
+                    generators.delete(evt.target);
+                    evt.target.remove();
+
+                    updateRationalFunction();
+                    redrawTLSOutline();
+                }
+            }
+
+            function divisorMove(evt) {
+                const coord = getMousePosition(evt, triangle.ownerSVGElement);
+                const clampedCoord = clampToTriangle(coord);
+                setDivisorCoordinates(selectedDivisor, clampedCoord);
+                updateGenerator(selectedDivisor, clampedCoord);
+                updateRationalFunction();
+            }
+
+            function divisorRelease(evt) {
+                selectedDivisor.style.cursor = "grab";
+                selectedDivisor = null;
+
+                document.removeEventListener('mousemove', divisorMove);
+                document.removeEventListener('mouseup', divisorRelease);
+            }
+
+            function handleGrab(evt) {
+                evt.preventDefault();
+                if (evt.button == 0) {
+                    handle.style.cursor = "grabbing";
+                    document.addEventListener("mousemove", handleMove);
+                    document.addEventListener("mouseup", handleRelease);
+                }
+            }
+
+            function handleMove(evt) {
+                const coord = getMousePosition(evt, triangle.ownerSVGElement);
+                const clampedCoord = clampToTriangle(coord);
+                const gens = Array.from(generators.keys());
+                
+                const avg = (clampedCoord.x + clampedCoord.y) / 2
+                const coord0 = {x: avg, y: avg}
+                setDivisorCoordinates(gens[0], coord0);
+                updateGenerator(gens[0], coord0);
+
+                const coord1 = {x: clampedCoord.x, y: 0};
+                setDivisorCoordinates(gens[1], coord1);
+                updateGenerator(gens[1], coord1);
+
+                const coord2 = {x: 1, y: clampedCoord.y};
+                setDivisorCoordinates(gens[2], coord2);
+                updateGenerator(gens[2], coord2);
+
+                setDivisorCoordinates(handle, clampedCoord);
+
+                updateRationalFunction();
+            }
+
+            function handleRelease(evt) {
+                document.removeEventListener('mousemove', handleMove);
+                document.removeEventListener('mouseup', handleRelease);
+            }
+
+            // Event listener to clicks on the triangle
+            function triangleMouseDown(evt) {
+                evt.preventDefault();
+                if (evt.button == 0) {
+                    document.addEventListener("mousemove", triangleMouseMove);
+                    document.addEventListener("mouseup", triangleMouseUp);
+                    triangleMouseMove(evt); // Update the divisor immediately
+                } else if (evt.button == 2) {
+                    const coord = getMousePosition(evt, triangle.ownerSVGElement);
+                    coeffs = [0, coord.y, coord.x + coord.y - 1];
+                    addGenerator(coeffs, true);
+                    updateRationalFunction();
+                    redrawTLSOutline();
+                }
+            }
+
+            
+            function clampToTriangle(coord) {
+                var x = Math.max(0, Math.min(coord.x, 1));
+                var y = Math.max(0, Math.min(coord.y, 1));
+                if ((1 - x) + y > 1) {
+                    diff = (1 - x) + y - 1;
+                    x += diff/2;
+                    y -= diff/2;
+                }
+                return {x:x, y:y};
+            }
+
+            // Event listener for dragging along the triangle
+            function triangleMouseMove(evt) {
+                const coord = getMousePosition(evt, triangle.ownerSVGElement);
+                const clampedCoord = clampToTriangle(coord);
+                setDivisorCoordinates(divisor, clampedCoord);
+                updatePoints(clampedCoord);
+                updateRationalFunction();
+
+                if (Math.max(Math.abs(projectionPos.x - coord.x),
+                        Math.abs(projectionPos.y - coord.y))
+                    < 0.1) {
+                    setDivisorCoordinates(divisor, projectionPos);
+                    updatePoints(projectionPos);
+                    updateRationalFunction();
+                }
+            }
+
+            // Event listener when mouse is released
+            function triangleMouseUp(evt) {
+                document.removeEventListener("mousemove", triangleMouseMove);
+                document.removeEventListener("mouseup", triangleMouseUp);
+            }
+
+            // Selected chip on the interval
+            var selectedPoint = null;
+
+            // Event when starting dragging a chip
+            function startDrag(evt) {
+                evt.preventDefault();
+                selectedPoint = evt.target;
+                selectedPoint.style.cursor = "grabbing";
+
+                document.addEventListener('mousemove', drag);
+                document.addEventListener('mouseup', endDrag);
+            }
+
+            function drag(evt) {
+                evt.preventDefault();
+                // Set coordinate of chip to that of the mouse, clipped to interval
+                const coord = getMousePosition(evt, selectedPoint.ownerSVGElement);
+                coord.x = Math.max(0, Math.min(coord.x, 1));
+                selectedPoint.setAttribute("cx", coord.x);
+
+                // Update the other images accordingly
+                updateDivisor();
+                updateRationalFunction();
+            }
+
+            function endDrag(evt) {
+                selectedPoint.style.cursor = "grab";
+                selectedPoint = null;
+
+                document.removeEventListener('mousemove', drag);
+                document.removeEventListener('mouseup', endDrag);
+            }
+
+            // Helper value to retrieve chip coordinate along the interval
+            function getPointCoord(point) {
+                return point.cx.baseVal.value;
+            }
+
+            // Update divisor to agree with positions of chips
+            function updateDivisor() {
+                let x = getPointCoord(point1);
+                let y = getPointCoord(point2);
+                if (x < y) {
+                    [x, y] = [y, x];
+                }
+                divisor.setAttribute("cx", x);
+                divisor.setAttribute("cy", 1- y);
+                divisorPos = {x:x, y:y};
+            }
+
+            function coordsToRationalFunction(coords) {
+                return [0, coords.y, coords.y - (1 - coords.x)];
+            }
+
+            function updateGenerator(div, coords) {
+                const coeffs = coordsToRationalFunction(coords);
+                const gen = generators.get(div);
+                gen.coeffs = normalizeRationalFunction(coeffs);
+                redrawRationalFunction(gen.ratFn, coeffs);
+                redrawTLSOutline();
+            }
+
+            // Updates the image visualizing the rational function
+            // This is hardcoded for this example, it might be beneficial to eventually make this more modular
+            function updateRationalFunction() {
+                let coord1 = getPointCoord(point1);
+                let coord2 = getPointCoord(point2);
+                if (coord1 > coord2) {
+                    [coord1, coord2] = [coord2, coord1];
+                }
+
+                // Find coefficients of each function (positive values translate down)
+                let coeffs = [0, coord1, coord1 - (1 - coord2)]
+                coeffs = normalizeRationalFunction(coeffs);
+                redrawRationalFunction(ratFn, coeffs)
+
+                for (const [div, gen] of generators) {
+                    diff = 0;
+                    for (let i = 0; i < gen.coeffs.length; i++) {
+                        diff = Math.max(coeffs[i] - gen.coeffs[i], diff);
+                    }
+                    gen.constCoeff = diff;
+                    gen.ratFn.setAttribute("transform", `translate(0, ${-diff})`);
+                }
+
+                const proj = updateProjection();
+                redrawOutline(projectionSegment, coeffs, proj)
+            }
+
+            function rationalFunctionToCoords(coeffs) {
+                y = 0.5 * (1.0 + coeffs[0] + coeffs[2])
+                if (coeffs[1] > y) {
+                    coeffs[1] = y;
+                }
+
+                var cx = coeffs[1] - coeffs[0];
+                var cy = 1 - (coeffs[1] - coeffs[2]);
+                if (cx < cy) {
+                    [cx, cy] = [cy, cx];
+                }
+
+                return {x: cx, y: cy};
+            }
+
+            function updateProjection() {
+                const coeffs = [2, 2, 2];
+                for (const [div, gen] of generators) {
+                    for (let i = 0; i < coeffs.length; i++) {
+                        coeffs[i] = Math.min(gen.coeffs[i] + gen.constCoeff,
+                            coeffs[i]);
+                    }
+                }
+
+                projectionPos = rationalFunctionToCoords(coeffs);
+
+                projection.setAttribute("cx", projectionPos.x);
+                projection.setAttribute("cy", 1 - projectionPos.y);
+
+                return coeffs;
+            }
+            
+            function saveSVG(elId)
+            {
+                var SVG = document.getElementById(elId).outerHTML;
+                var SVG_blob = new Blob([SVG], {type:"image/svg+xml"});
+                var SVG_URL = window.URL.createObjectURL(SVG_blob);
+
+                var downloadLink = document.createElement("a");
+                downloadLink.download = "visual.svg";
+                downloadLink.href = SVG_URL;
+                downloadLink.onclick = destroyClickedElement;
+                downloadLink.style.display = "none";
+                document.body.appendChild(downloadLink);
+
+                downloadLink.click();
+            }
+
+            function destroyClickedElement(event)
+            {
+                document.body.removeChild(event.target);
+            }
+
+        </script>
+
+    </body>
+</html>
+
