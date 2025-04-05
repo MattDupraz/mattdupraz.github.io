@@ -10,6 +10,7 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            background: #fff5dd;
         }
         .container {
             position: relative;
@@ -60,7 +61,7 @@
 
         <br/>
         
-        <div style="margin:0px auto; width:800px">
+        <div style="margin:0px auto; width:800px;  display:flex;">
         <div style="float:left; margin:0;width:50%;">
 
         <!-- Second image containing the visualization of the raitonal funciton -->
@@ -99,6 +100,27 @@
         <button onclick="saveSVG('triangleSvg')">Save SVG</button>
         </div>
         </div>
+        
+        <br>
+        <hr>
+        <div style="margin:0px auto; width:800px; padding:10px 0px; text-align:left;">
+        This tool can be used to visualize tropical submodules of degree 2 on an interval.
+        Points with white border correspond to generating functions of the tropical module. These points are color coded and their corresponding rational function is visualized on the left.
+        The point with red border represents a divisor of degree 2, which is visualized as a pair of chips on an interval on the top. When the divisor lies outside of the tropical module,
+        its projection into the tropical module is depicted using a dashed line.
+        </div>
+        <div style="margin:0px auto; width:800px; padding:10px 0px;  display:flex; text-align:left;">
+        <br>
+        <p>
+        <b>How to use:</b>
+        </p>
+        <ul>
+        <li>Drag points around with left click</li>
+        <li>Right click on empty space in triangle to add a generator the the linear series</li>
+        <li>Right click on a generator to remove it</li>
+        </ul>
+        </div>
+
         
         <script>
             const point1 = document.getElementById("P1");

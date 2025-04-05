@@ -8,9 +8,13 @@
     color: rgb(150, 220, 255);
 }
 
-p {
-    text-indent: 20px each-line;
+br {
+    margin-bottom: 10px;
 }
+
+p {
+	margin-bottom: 10px;
+	}
 
 // If a user adds a custom font, this component will stop it from bleeding into GitHub components:
 img[alt="figure"] {
@@ -94,4 +98,25 @@ img[alt="figure"] {
 
 .aplayer-info {
     background-color: #24292e !important
+}
+
+.aplayer-list {
+	background-color: #24292e !important
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-light {
+	background-color: #2f363d !important
+}
+
+.aplayer .aplayer-list ol li:hover {
+	background-color: #3f464d !important
+}
+
+.aplayer.aplayer-withlist .aplayer-info {
+  border: none !important;
+  border-bottom: none !important;
+}
+
+.aplayer .aplayer-list ol li {
+	border-top: none !important;
 }
