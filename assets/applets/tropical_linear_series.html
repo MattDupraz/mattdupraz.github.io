@@ -504,6 +504,8 @@
                 handle.setAttribute("r", 0.04);
                 handle.setAttribute("cx", 0.7);
                 handle.setAttribute("cy", 0.7);
+                handle.style.stroke = "black";
+                handle.style.strokeWidth = 0.005;
                 handle.style.cursor = "grab";
                 handle.addEventListener("mousedown", handleGrab);
 
@@ -610,7 +612,7 @@
             }
 
             function handleMove(evt) {
-                const coord = getMousePosition(evt, triangle.ownerSVGElement);
+                const coord = clampToSquare(getMousePosition(evt, triangle.ownerSVGElement));
                 const clampedCoord = clampToTriangle(coord);
                 const gens = Array.from(generators.keys());
                 
@@ -619,15 +621,15 @@
                 setDivisorCoordinates(gens[0], coord0);
                 updateGenerator(gens[0], coord0);
 
-                const coord1 = {x: clampedCoord.x, y: 0};
+                const coord1 = {x: coord.x, y: 0};
                 setDivisorCoordinates(gens[1], coord1);
                 updateGenerator(gens[1], coord1);
 
-                const coord2 = {x: 1, y: clampedCoord.y};
+                const coord2 = {x: 1, y: coord.y};
                 setDivisorCoordinates(gens[2], coord2);
                 updateGenerator(gens[2], coord2);
 
-                setDivisorCoordinates(handle, clampedCoord);
+                setDivisorCoordinates(handle, coord);
 
                 updateRationalFunction();
             }
@@ -662,6 +664,12 @@
                     x += diff/2;
                     y -= diff/2;
                 }
+                return {x:x, y:y};
+            }
+            
+            function clampToSquare(coord) {
+                var x = Math.max(0, Math.min(coord.x, 1));
+                var y = Math.max(0, Math.min(coord.y, 1));
                 return {x:x, y:y};
             }
 
