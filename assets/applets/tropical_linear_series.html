@@ -163,6 +163,9 @@
                     for (let j = 0; j < generators.size; j++) {
                         if (i != j) {
                             const gen2 = rationalFunctionToCoords(gens[j].coeffs);
+                            if (Math.abs(gen1.x - gen2.x) + Math.abs(gen1.y - gen2.y) < 0.0005) {
+                              continue
+                            }
                             others.push(gen2);
                             const tangentDir = getTangentDirection(gen1, gen2);
                             tangentDirections[tangentDir] = true;
