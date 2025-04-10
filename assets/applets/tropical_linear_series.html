@@ -746,7 +746,7 @@
                 const coeffs = coordsToRationalFunction(coords);
                 const gen = generators.get(div);
                 gen.coeffs = normalizeRationalFunction(coeffs);
-                redrawRationalFunction(gen.ratFn, coeffs);
+                redrawRationalFunction(gen.ratFn, gen.coeffs);
                 redrawTLSOutline();
             }
 
