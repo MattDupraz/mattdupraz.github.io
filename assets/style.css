@@ -45,11 +45,11 @@
 body {
     background-color: #002222;
     margin: 0;
-    font-family: FiraMono, monospace;
+    font-family: FiraMono;
 }
 
 h1, h2, h3 {
-    font-family: PTMono;
+    font-family: FiraMonoBold;
 }
 
 .container {
@@ -84,9 +84,6 @@ article {
     border-width: 2px;
 }
 
-/*#right-column article h2 {
-	margin-top: 5px;
-}*/
 
 .valign {
 	display: flex;
