@@ -1,41 +1,55 @@
-#personal-info {
-	float: left;
-	max-width: 350px;
-	margin-right: -350px;
+.container {
+    display: flex;
+    padding: 10px;
+    min-width: 800px;
 }
 
-#about-me {
-	float: left;
-	margin-left: 350px;
+#left-column {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
 }
 
-#personal-info-card {
-	padding:10px;
+#right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#right-column article {
+	margin-left: 10px;
+}
+
+article {
+    margin-bottom: 10px;
+	padding:30px 30px;
 	background-color: #203030;
 	color: #ffffff;
+    border-style: solid;
+    border-color: #344 #011 #011 #344;
+    border-width: 2px;
 }
 
-#about-me-card {
-	margin-left: 10px;
-	padding:10px 20px;
-	background-color: #405050;
-	color: #ffffff;
-}
-
-#about-me-card h1 {
+/*#right-column article h2 {
 	margin-top: 5px;
-}
+}*/
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+body {
+    background-color: #002222;
+    margin: 0;
 }
 
 .valign {
 	display: flex;
 	align-items: center;
+}
+
+.link-social {
+    margin-top: 10px;
+}
+
+.heading {
+    margin-top: -22px;
 }
 
 .icon {
@@ -44,5 +58,55 @@
 }
 
 a {
-	color: #bbeeff;
+	color: #ffccaa;
+    text-decoration: none;
 }
+
+a:hover {
+    /*background-color: #eebb99;
+    color: #002222;*/
+    text-decoration: underline;
+}
+
+.aplayer-bar {
+    background-color: #506060 !important;
+}
+
+.aplayer-info, .aplayer-list, .aplayer .aplayer-list ol li.aplayer-list-light {
+  background-color:#102727 !important
+}
+.aplayer .aplayer-list ol li:hover {
+  background-color:#002020 !important
+}
+.aplayer.aplayer-withlist .aplayer-info {
+  border:none !important;
+  border-bottom:none !important
+}
+.aplayer .aplayer-list ol li {
+  border-top:none !important
+}
+
+.aplayer-list-cur, .aplayer-played, .aplayer-thumb, .aplayer-volume {
+  background-color:#ffccaa !important
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon:hover path {
+    fill: #fff !important;
+}
+
+/*
+.aplayer .aplayer-info .aplayer-music {
+    overflow: hidden;
+}
+
+.aplayer .aplayer-info .aplayer-music {
+    display: inline-block;
+    animation: floatText 15s infinite linear;
+    padding-left: 100%;
+}
+
+@keyframes floatText {
+  to {
+    transform: translateX(-100%);
+  }
+}*/
