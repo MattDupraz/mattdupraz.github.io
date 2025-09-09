@@ -1,13 +1,67 @@
+@font-face {
+  font-family: W98;
+  src: url(fonts/MSW98UI-Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: W98;
+  src: url(fonts/MSW98UI-Regular.otf);
+}
+
+@font-face {
+  font-family: PC98;
+  src: url(fonts/pc-9800-bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: PC98;
+  src: url(fonts/pc-9800.ttf);
+}
+
+@font-face {
+  font-family: PTMono;
+  src: url(fonts/PTMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: FiraMono;
+  src: url(fonts/FiraMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: FiraMonoMedium;
+  src: url(fonts/FiraMono-Medium.ttf);
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: FiraMonoBold;
+  src: url(fonts/FiraMono-Bold.ttf);
+  font-weight: bold;
+}
+
+body {
+    background-color: #002222;
+    margin: 0;
+    font-family: FiraMono, monospace;
+}
+
+h1, h2, h3 {
+    font-family: PTMono;
+}
+
 .container {
     display: flex;
-    padding: 10px;
+    padding: 20px;
     min-width: 800px;
 }
 
 #left-column {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 365px;
 }
 
 #right-column {
@@ -24,7 +78,7 @@ article {
     margin-bottom: 10px;
 	padding:30px 30px;
 	background-color: #203030;
-	color: #ffffff;
+	color: #e4fae4;
     border-style: solid;
     border-color: #344 #011 #011 #344;
     border-width: 2px;
@@ -33,11 +87,6 @@ article {
 /*#right-column article h2 {
 	margin-top: 5px;
 }*/
-
-body {
-    background-color: #002222;
-    margin: 0;
-}
 
 .valign {
 	display: flex;
@@ -50,16 +99,18 @@ body {
 
 .heading {
     margin-top: -22px;
+    margin-bottom: -10px;
 }
 
 .icon {
 	height: 25px;
-	margin-right: 5px;
+	margin-right: 10px;
 }
 
 a {
+  font-family: FiraMonoMedium;
 	color: #ffccaa;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
