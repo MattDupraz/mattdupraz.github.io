@@ -1,40 +1,66 @@
----
-layout: home
----
+<html>
+<head>
+	<title>Matt Dupraz Homepage</title>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
 
-<h1>About me</h1>
+<body>
+<!--<script>NekoType="white"</script>
+<h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a 
+	href="https://webneko.net">Neko</a></h1>-->
 
-<p>Hi! I am a PhD student at Freie Universität Berlin broadly interested in
-interactions between algebraic geometry and combinatorics.
-I started my PhD in
-September 2024 under the supervision of Christian Haase (FU Berlin) and
-Leonid Monin (EPFL), in a project titled "K-Theory and Normal Complexes".
-The goal of this project is to study Chow rings and K-rings of certain toric
-varieties, with the aim of finding interesting combinatorial interpretations of
-some computations in these rings.<br>
+<div class="row">
+<div id="personal-info">
+	<article id="personal-info-card">
+		<img style="width: 100%" src="assets/images/portrait.jpg"/>
+		<h1>Matt Dupraz</h1>
+		<p>PhD candidate at FU Berlin</p>
+		<div class="valign">
+			<img class="icon" src="assets/icons/envelope_closed.png">
+			<a href="mailto:matthew.dupraz@fu-berlin.de" class="text-white">matthew.dupraz@fu-berlin.de</a>
+		</div>
+	</article>
+</div>
 
-More generally, I am interested in algebraic combinatorics. For example the
-various interactions between objects such as matroids, hyperplane arrangements,
-polytopes and objects from algebraic geometry.<br>
+<div id="about-me">
+	<article id="about-me-card">
+		<h1>About me</h1>
 
-I am also interested in tropical geometry. I wrote my Master's thesis at EPFL
-on the topic of tropical curves,
-continuous chip firing games and tropical linear systems. I studied the
-structure and topology of tropical linear systems and the question of
-realizability of tropical divisors.
-</p>
+		<p>Hi! I am a PhD student at Freie Universität Berlin broadly interested in
+		interactions between algebraic geometry and combinatorics.
+		I started my PhD in
+		September 2024 under the supervision of Christian Haase (FU Berlin) and
+		Leonid Monin (EPFL), in a project titled "K-Theory and Normal Complexes".
+		The goal of this project is to study Chow rings and K-rings of certain toric
+		varieties, with the aim of finding interesting combinatorial interpretations of
+		some computations in these rings.<br>
 
-<p>
-You can download my CV 
-    <a class="text-link" href="/assets/documents/CV.pdf">
-        here</a>. <em>Last updated: January 13, 2025</em>
-</p>
+		More generally, I am interested in algebraic combinatorics. For example the
+		various interactions between objects such as matroids, hyperplane arrangements,
+		polytopes and objects from algebraic geometry.<br>
+
+		I am also interested in tropical geometry. I wrote my Master's thesis at EPFL
+		on the topic of tropical curves,
+		continuous chip firing games and tropical linear systems. I studied the
+		structure and topology of tropical linear systems and the question of
+		realizability of tropical divisors.
+		</p>
+
+		<p>
+		You can download my CV 
+		    <a class="text-link" href="assets/documents/CV.pdf">
+			here</a>. <em>Last updated: January 13, 2025</em>
+		</p>
+	</article>
+
+</div>
+</div>
 
 <h2>Resources</h2>
 
 <div style="width:20%; text-align: center; margin-bottom: 10px;">
-<a class="no-highlight" href="/TLS_Interval">
-<img src="/assets/images/tropical_linear_series.svg" alt="Tropical Linear
+<a class="no-highlight" href="TLS_Interval">
+<img src="assets/images/tropical_linear_series.svg" alt="Tropical Linear
 Series" width="100%"><br>
 Tropical Linear Series
 </a>
@@ -77,15 +103,17 @@ const ap = new APlayer({
     audio: [{
         name: 'The improbable adventure of Arthur Dent',
         artist: 'Matt Dupraz',
-        url: '/assets/audio/arthur_dent.mp3',
-        cover: '/assets/images/arthur_dent.jpg'
+        url: 'assets/audio/arthur_dent.mp3',
+        cover: 'assets/images/arthur_dent.jpg'
     },
     {
         name: 'キャプテン・ムラサ',
         artist: 'Matt Dupraz',
-        url: '/assets/audio/captain_murasa.mp3',
-        cover: '/assets/images/captain_murasa.png'
+        url: 'assets/audio/captain_murasa.mp3',
+        cover: 'assets/images/captain_murasa.png'
     }],
     theme: '#b7daff'
 });
 </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+#personal-info {
+	float: left;
+	max-width: 350px;
+	margin-right: -350px;
+}
+
+#about-me {
+	float: left;
+	margin-left: 350px;
+}
+
+#personal-info-card {
+	padding:10px;
+	background-color: #203030;
+	color: #ffffff;
+}
+
+#about-me-card {
+	margin-left: 10px;
+	padding:10px 20px;
+	background-color: #405050;
+	color: #ffffff;
+}
+
+#about-me-card h1 {
+	margin-top: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.valign {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	height: 25px;
+	margin-right: 5px;
+}
+
+a {
+	color: #bbeeff;
+}
