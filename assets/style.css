@@ -84,6 +84,29 @@ article {
     border-width: 2px;
 }
 
+.fill {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.back-to-top {
+    align-self: flex-end;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+	padding:15px 30px;
+	background-color: #203030;
+	color: #e4fae4;
+    border-style: solid;
+    border-color: #344 #011 #011 #344;
+    border-width: 2px;
+    margin-bottom: 10px;
+
+    position: sticky;
+    bottom: 0;
+    height: 20;
+}
 
 .valign {
 	display: flex;
