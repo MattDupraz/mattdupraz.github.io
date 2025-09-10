@@ -215,27 +215,6 @@ a:hover {
   border-top:none !important
 }
 
-.aplayer-list-cur, .aplayer-played, .aplayer-thumb, .aplayer-volume {
-  background-color:#ffccaa !important
-}
-
 .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon:hover path {
     fill: #fff !important;
 }
-
-/*
-.aplayer .aplayer-info .aplayer-music {
-    overflow: hidden;
-}
-
-.aplayer .aplayer-info .aplayer-music {
-    display: inline-block;
-    animation: floatText 15s infinite linear;
-    padding-left: 100%;
-}
-
-@keyframes floatText {
-  to {
-    transform: translateX(-100%);
-  }
-}*/

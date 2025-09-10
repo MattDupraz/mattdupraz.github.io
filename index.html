@@ -1,10 +1,18 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Matt Dupraz</title>
+
+
+        <link rel="preload" href="assets/icons/sprites.png" as="image" type="image/png">
+        <link rel="preload" href="assets/fonts/FiraMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="assets/fonts/FiraMono-Medium.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="assets/fonts/FiraMono-Bold.ttf" as="font" type="font/ttf" crossorigin>
         <link rel="stylesheet" href="assets/style.css">
 
         <link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
-        <script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
+
+        <link rel="icon" href="assets/icons/favicon.gif" type="image/gif" >
     </head>
 
     <body>
@@ -25,14 +33,6 @@
                     <a href="https://github.com/MattDupraz">@MattDupraz</a>
                 </div>
             </article>
-
-            <script>
-                NekoType="white";
-                startNekoX = 315;
-                startNekoY = 376;
-            </script>
-            <h1 id=nl><script src="https://webneko.net/n20171213.js"></script><a 
-                href="https://webneko.net">Neko</a></h1>
 
             <article id="resources">
                 <div class="valign heading">
@@ -76,24 +76,6 @@
                 </p>
 
                 <div id="aplayer"></div>
-                <script>
-                    const ap = new APlayer({
-                        container: document.getElementById('aplayer'),
-                        audio: [{
-                            name: 'The improbable adventure of Arthur Dent',
-                            artist: 'Matt Dupraz',
-                            url: 'assets/audio/arthur_dent.mp3',
-                            cover: 'assets/images/arthur_dent.jpg'
-                        },
-                            {
-                                name: 'キャプテン・ムラサ',
-                                artist: 'Matt Dupraz',
-                                url: 'assets/audio/captain_murasa.mp3',
-                                cover: 'assets/images/captain_murasa.png'
-                            }],
-                        theme: '#b7daff'
-                    });
-                </script>
             </article>
 
             <div class="fill">
@@ -269,5 +251,31 @@
     </div>
 
 
+        <script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
+        <script>
+            const ap = new APlayer({
+                container: document.getElementById('aplayer'),
+                audio: [{
+                    name: 'The improbable adventure of Arthur Dent',
+                    artist: 'Matt Dupraz',
+                    url: 'assets/audio/arthur_dent.mp3',
+                    cover: 'assets/images/arthur_dent.jpg'
+                },
+                    {
+                        name: 'キャプテン・ムラサ',
+                        artist: 'Matt Dupraz',
+                        url: 'assets/audio/captain_murasa.mp3',
+                        cover: 'assets/images/captain_murasa.png'
+                    }],
+                theme: '#ffccaa'
+            });
+        </script>
+
+        <script>
+            NekoType="white";
+            startNekoX = 315;
+            startNekoY = 380;
+        </script>
+        <script src="https://webneko.net/n20171213.js"></script>
     </body>
 </html>
