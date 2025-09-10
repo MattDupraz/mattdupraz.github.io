@@ -92,6 +92,14 @@ h1, h2, h3 {
     font-family: FiraMonoBold;
 }
 
+td {
+    vertical-align: top;
+	color: #e4fae4;
+    text-align: left;
+    padding: 10px;
+    min-width: 70px;
+}
+
 td ul {
     padding-left: 18px;
     margin-bottom: -10px;
@@ -136,12 +144,20 @@ article {
     border-width: 2px;
 }
 
-td {
-    vertical-align: top;
-	color: #e4fae4;
-    text-align: left;
-    padding: 10px;
-    min-width: 70px;
+.deindent {
+    border-style: solid;
+    border-color: #022 #344 #344 #022;
+    border-width: 2px;
+}
+
+.portrait {
+    display: block;
+}
+
+.publications {
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:30px;
 }
 
 .fill {
