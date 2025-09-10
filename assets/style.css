@@ -97,11 +97,15 @@ td {
 	color: #e4fae4;
     text-align: left;
     padding: 10px;
-    min-width: 70px;
+}
+
+.date {
+    width: 90px;
 }
 
 td ul {
-    padding-left: 18px;
+  list-style-type: none;
+    padding-left: 0px;
     margin-bottom: -10px;
     margin-top: 0px;
 }
