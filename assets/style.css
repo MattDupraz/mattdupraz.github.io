@@ -55,6 +55,7 @@ h1, h2, h3 {
 .container {
     display: flex;
     padding: 20px;
+    padding-bottom: 0px;
     min-width: 800px;
 }
 
@@ -68,6 +69,7 @@ h1, h2, h3 {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding-bottom: 10px;
 }
 
 #right-column article {
@@ -84,6 +86,15 @@ article {
     border-width: 2px;
 }
 
+td {
+    vertical-align: top;
+	color: #e4fae4;
+    text-align: left;
+    padding: 10px;
+    min-width: 70px;
+}
+
+
 .fill {
     display: flex;
     height: 100%;
@@ -92,6 +103,13 @@ article {
 
 .back-to-top {
     align-self: flex-end;
+    padding-bottom: 10px;
+
+    position: sticky;
+    bottom: 0;
+}
+
+.back-to-top a {
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
@@ -101,10 +119,6 @@ article {
     border-style: solid;
     border-color: #344 #011 #011 #344;
     border-width: 2px;
-    margin-bottom: 10px;
-
-    position: sticky;
-    bottom: 0;
     height: 20;
 }
 
