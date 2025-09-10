@@ -42,6 +42,45 @@
   font-weight: bold;
 }
 
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url("icons/sprites.png");
+    background-repeat: no-repeat;
+    transform: scale(0.7);
+    margin-right: 5px;
+}
+
+.info {
+    background-position: 0 0;
+}
+
+.research {
+    background-position: -32px 0;
+}
+
+.activities {
+    background-position: -64px 0;
+}
+
+.resources {
+    background-position: -96px 0;
+}
+
+.music {
+    background-position: 0 -32px;
+}
+
+.email {
+    background-position: -32px -32px;
+}
+
+.github {
+    background-position: -64px -32px;
+}
+
+
 body {
     background-color: #002222;
     margin: 0;
@@ -144,11 +183,6 @@ td {
 .heading {
     margin-top: -22px;
     margin-bottom: -10px;
-}
-
-.icon {
-	height: 25px;
-	margin-right: 10px;
 }
 
 a {
