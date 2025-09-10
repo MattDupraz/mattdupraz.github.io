@@ -52,6 +52,15 @@ h1, h2, h3 {
     font-family: FiraMonoBold;
 }
 
+td ul {
+    padding-left: 18px;
+    margin-bottom: -10px;
+}
+
+td ul li {
+    margin-bottom: 10px;
+}
+
 .container {
     display: flex;
     padding: 20px;
