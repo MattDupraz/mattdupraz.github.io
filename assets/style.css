@@ -1,3 +1,15 @@
+:root {
+    --bg: #132222;
+    --bg-shadow: #011;
+    --bg-highlight: #344;
+    --bg-secondary: #233;
+    --bg-secondary-shadow: #122;
+    --bg-secondary-highlight: #344;
+    --bg-tertiary: #1c2b2b;
+    --fg: #e4fae4;
+    --fg-highlight:#ffccaa;
+}
+
 @font-face {
   font-family: W98;
   src: url(fonts/MSW98UI-Bold.otf);
@@ -82,7 +94,8 @@
 
 
 body {
-    background-color: #002222;
+    background-color: var(--bg);
+	color: var(--fg);
     margin: 0;
     font-family: FiraMono;
     text-size-adjust: none;
@@ -94,7 +107,6 @@ h1, h2, h3 {
 
 td {
     vertical-align: top;
-	color: #e4fae4;
     text-align: left;
     padding: 10px;
 }
@@ -141,16 +153,15 @@ td ul li {
 article {
     margin-bottom: 10px;
 	padding:30px 30px;
-	background-color: #203030;
-	color: #e4fae4;
+	background-color: var(--bg-secondary);
     border-style: solid;
-    border-color: #344 #011 #011 #344;
+    border-color: var(--bg-highlight) var(--bg-shadow) var(--bg-shadow) var(--bg-highlight);
     border-width: 2px;
 }
 
 .deindent {
     border-style: solid;
-    border-color: #022 #344 #344 #022;
+    border-color: var(--bg-secondary-shadow) var(--bg-secondary-highlight) var(--bg-secondary-highlight) var(--bg-secondary-shadow);
     border-width: 2px;
 }
 
@@ -183,10 +194,10 @@ article {
     text-decoration: none;
     cursor: pointer;
 	padding:15px 30px;
-	background-color: #203030;
-	color: #e4fae4;
+	background-color: var(--bg-secondary);
+	color: var(--fg);
     border-style: solid;
-    border-color: #344 #011 #011 #344;
+    border-color: var(--bg-highlight) var(--bg-shadow) var(--bg-shadow) var(--bg-highlight);
     border-width: 2px;
     height: 20;
 }
@@ -207,7 +218,7 @@ article {
 
 a {
   font-family: FiraMonoMedium;
-	color: #ffccaa;
+	color: var(--fg-highlight);
   text-decoration: none;
 }
 
@@ -221,11 +232,15 @@ a:hover {
     background-color: #506060 !important;
 }
 
-.aplayer-info, .aplayer-list, .aplayer .aplayer-list ol li.aplayer-list-light {
-  background-color:#102727 !important
+.aplayer .aplayer-list ol li {
+    transition: none !important;
+}
+
+.aplayer-info, .aplayer-list, .aplayer .aplayer-list ol li.aplayer-list-light, .aplayer {
+  background-color:var(--bg-tertiary) !important
 }
 .aplayer .aplayer-list ol li:hover {
-  background-color:#002020 !important
+  background-color:var(--bg) !important
 }
 .aplayer.aplayer-withlist .aplayer-info {
   border:none !important;
@@ -237,4 +252,14 @@ a:hover {
 
 .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon:hover path {
     fill: #fff !important;
+}
+
+.aplayer {
+    box-shadow: none !important;
+    margin: 0 !important;
+    /*font-family: FiraMono !important;*/
+}
+
+.aplayer-list-author, .aplayer-author {
+    display: none !important;
 }
