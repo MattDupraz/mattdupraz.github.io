@@ -1,0 +1,265 @@
+:root {
+    --bg: #132222;
+    --bg-shadow: #011;
+    --bg-highlight: #344;
+    --bg-secondary: #233;
+    --bg-secondary-shadow: #122;
+    --bg-secondary-highlight: #344;
+    --bg-tertiary: #1c2b2b;
+    --fg: #e4fae4;
+    --fg-highlight:#ffccaa;
+}
+
+@font-face {
+  font-family: W98;
+  src: url(fonts/MSW98UI-Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: W98;
+  src: url(fonts/MSW98UI-Regular.otf);
+}
+
+@font-face {
+  font-family: PC98;
+  src: url(fonts/pc-9800-bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: PC98;
+  src: url(fonts/pc-9800.ttf);
+}
+
+@font-face {
+  font-family: PTMono;
+  src: url(fonts/PTMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: FiraMono;
+  src: url(fonts/FiraMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: FiraMonoMedium;
+  src: url(fonts/FiraMono-Medium.ttf);
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: FiraMonoBold;
+  src: url(fonts/FiraMono-Bold.ttf);
+  font-weight: bold;
+}
+
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url("icons/sprites.png");
+    background-repeat: no-repeat;
+    transform: scale(0.7);
+    margin-right: 5px;
+}
+
+.info {
+    background-position: 0 0;
+}
+
+.research {
+    background-position: -32px 0;
+}
+
+.activities {
+    background-position: -64px 0;
+}
+
+.resources {
+    background-position: -96px 0;
+}
+
+.music {
+    background-position: 0 -32px;
+}
+
+.email {
+    background-position: -32px -32px;
+}
+
+.github {
+    background-position: -64px -32px;
+}
+
+
+body {
+    background-color: var(--bg);
+	color: var(--fg);
+    margin: 0;
+    font-family: FiraMono;
+    text-size-adjust: none;
+}
+
+h1, h2, h3 {
+    font-family: FiraMonoBold;
+}
+
+td {
+    vertical-align: top;
+    text-align: left;
+    padding: 10px;
+}
+
+.date {
+    width: 90px;
+}
+
+td ul {
+  list-style-type: none;
+    padding-left: 0px;
+    margin-bottom: -10px;
+    margin-top: 0px;
+}
+
+td ul li {
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    padding-bottom: 0px;
+    min-width: 800px;
+}
+
+#left-column {
+    display: flex;
+    flex-direction: column;
+    width: 365px;
+}
+
+#right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+#right-column article {
+	margin-left: 10px;
+}
+
+article {
+    margin-bottom: 10px;
+	padding:30px 30px;
+	background-color: var(--bg-secondary);
+    border-style: solid;
+    border-color: var(--bg-highlight) var(--bg-shadow) var(--bg-shadow) var(--bg-highlight);
+    border-width: 2px;
+}
+
+.deindent {
+    border-style: solid;
+    border-color: var(--bg-secondary-shadow) var(--bg-secondary-highlight) var(--bg-secondary-highlight) var(--bg-secondary-shadow);
+    border-width: 2px;
+}
+
+.portrait {
+    display: block;
+}
+
+.publications {
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left:30px;
+}
+
+.fill {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.back-to-top {
+    align-self: flex-end;
+    padding-bottom: 10px;
+
+    position: sticky;
+    bottom: 0;
+}
+
+.back-to-top a {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+	padding:15px 30px;
+	background-color: var(--bg-secondary);
+	color: var(--fg);
+    border-style: solid;
+    border-color: var(--bg-highlight) var(--bg-shadow) var(--bg-shadow) var(--bg-highlight);
+    border-width: 2px;
+    height: 20;
+}
+
+.valign {
+	display: flex;
+	align-items: center;
+}
+
+.link-social {
+    margin-top: 10px;
+}
+
+.heading {
+    margin-top: -22px;
+    margin-bottom: -10px;
+}
+
+a {
+  font-family: FiraMonoMedium;
+	color: var(--fg-highlight);
+  text-decoration: none;
+}
+
+a:hover {
+    /*background-color: #eebb99;
+    color: #002222;*/
+    text-decoration: underline;
+}
+
+.aplayer-bar {
+    background-color: #506060 !important;
+}
+
+.aplayer .aplayer-list ol li {
+    transition: none !important;
+}
+
+.aplayer-info, .aplayer-list, .aplayer .aplayer-list ol li.aplayer-list-light, .aplayer {
+  background-color:var(--bg-tertiary) !important
+}
+.aplayer .aplayer-list ol li:hover {
+  background-color:var(--bg) !important
+}
+.aplayer.aplayer-withlist .aplayer-info {
+  border:none !important;
+  border-bottom:none !important
+}
+.aplayer .aplayer-list ol li {
+  border-top:none !important
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon:hover path {
+    fill: #fff !important;
+}
+
+.aplayer {
+    box-shadow: none !important;
+    margin: 0 !important;
+    /*font-family: FiraMono !important;*/
+}
+
+.aplayer-list-author, .aplayer-author {
+    display: none !important;
+}
