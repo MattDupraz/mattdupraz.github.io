@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/MattDupraz/mattdupraz.github.io#readme",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "@vscode/markdown-it-katex": "^1.1.2",
+    "katex": "^0.16.22"
   }
 }
