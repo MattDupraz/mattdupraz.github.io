@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matt Dupraz</title>
+
+
+        <link rel="preload" href="assets/icons/sprites.png" as="image" type="image/png">
+        <link rel="preload" href="assets/fonts/FiraMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="assets/fonts/FiraMono-Medium.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="preload" href="assets/fonts/FiraMono-Bold.ttf" as="font" type="font/ttf" crossorigin>
+        <link rel="stylesheet" href="assets/style.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
+
+        <link rel="icon" href="assets/icons/favicon.gif" type="image/gif" >
+    </head>
+
+    <body>
+
+        <a id="top"></a>
+        <div class="container">
+            <div id="left-column">
+                <article id="personal-info">
+                    <div class="deindent">
+                        <img class="portrait" style="width: 100%" src="assets/images/portrait.jpg"/>
+                    </div>
+                    <h1>Matt Dupraz</h1>
+                    <p>PhD candidate at FU Berlin</p>
+                    <div class="valign link-social">
+                        <div class="icon email"></div>
+                        <a href="mailto:matthew.dupraz@fu-berlin.de">matthew.dupraz@fu-berlin.de</a>
+                    </div>
+                    <div class="valign link-social">
+                        <div class="icon github"></div>
+                        <a href="https://github.com/MattDupraz">@MattDupraz</a>
+                    </div>
+                </article>
+
+                <article id="resources">
+                    <div class="valign heading">
+                        <div class="icon resources"></div>
+                        <h2>Resources</h2>
+                    </div>
+
+                    <span style="font-size: 13px;">
+                        <div style="width:50%; text-align: center; float: left;">
+                            <div style="padding-right:10px">
+                                <a href="TLS_Interval">
+                                    <div style="padding:10px;">
+                                        <img src="assets/images/tropical_linear_series.svg" width="100%">
+                                    </div>
+                                    Tropical Linear Series on an Interval
+                                </a>
+                            </div>
+                        </div>
+                        <div style="width:50%; text-align: center; float: left;">
+                            <div style="padding-left:10px">
+                                <a href="Graph-Linear-Systems">
+                                    <div style="padding:10px;">
+                                        <img src="assets/images/graph-divisor.png" width="100%">
+                                    </div>
+                                    Divisors on Graphs in Julia
+                                </a>
+                            </div>
+                        </div>
+                    </span>
+                </article>
+
+                <article id="music">
+                    <div class="valign heading">
+                        <div class="icon music"></div>
+                        <h2>Music</h2>
+                    </div>
+
+                    <p>
+                        I enjoy making music in my free time, check out some of my
+                        songs!
+                    </p>
+
+                    <div class="deindent">
+                        <div id="aplayer"></div>
+                    </div>
+                </article>
+
+                <div class="fill">
+                    <div class="back-to-top" href="#top">
+                        <a href="#top">
+                            Back to top
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="right-column">
+		{{ content }}
+	    </div>
+        </div>
+
+
+        <script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
+        <script>
+            const ap = new APlayer({
+                container: document.getElementById('aplayer'),
+                audio: [
+			{
+				name: 'キャプテン・ムラサ',
+				artist: 'Matt Dupraz',
+				url: 'assets/audio/captain_murasa.mp3',
+				cover: 'assets/images/captain_murasa.png'
+			},
+			{
+				name: 'The improbable adventure of Arthur Dent',
+				artist: 'Matt Dupraz',
+				url: 'assets/audio/arthur_dent.mp3',
+				cover: 'assets/images/arthur_dent.jpg'
+			}
+		],
+                theme: '#ffccaa'
+            });
+        </script>
+
+        <script>
+            NekoType="white";
+            startNekoX = 315;
+            startNekoY = 380;
+        </script>
+        <script src="https://webneko.net/n20171213.js"></script>
+    </body>
+</html>
