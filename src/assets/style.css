@@ -1,57 +1,13 @@
 :root {
-    --bg: #132222;
+    --bg: #132622;
     --bg-shadow: #011;
     --bg-highlight: #344;
-    --bg-secondary: #233;
+    --bg-secondary: #203530;
     --bg-secondary-shadow: #122;
     --bg-secondary-highlight: #344;
-    --bg-tertiary: #1c2b2b;
-    --fg: #e4fae4;
-    --fg-highlight:#ffccaa;
-}
-
-@font-face {
-  font-family: W98;
-  src: url(fonts/MSW98UI-Bold.otf);
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: W98;
-  src: url(fonts/MSW98UI-Regular.otf);
-}
-
-@font-face {
-  font-family: PC98;
-  src: url(fonts/pc-9800-bold.ttf);
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: PC98;
-  src: url(fonts/pc-9800.ttf);
-}
-
-@font-face {
-  font-family: PTMono;
-  src: url(fonts/PTMono-Regular.ttf);
-}
-
-@font-face {
-  font-family: FiraMono;
-  src: url(fonts/FiraMono-Regular.ttf);
-}
-
-@font-face {
-  font-family: FiraMonoMedium;
-  src: url(fonts/FiraMono-Medium.ttf);
-  font-weight: bolder;
-}
-
-@font-face {
-  font-family: FiraMonoBold;
-  src: url(fonts/FiraMono-Bold.ttf);
-  font-weight: bold;
+    --bg-tertiary: #1c2c2a;
+    --fg: #f1fff1;
+    --fg-highlight:#fa8;
 }
 
 .icon {
@@ -98,12 +54,11 @@ body {
     background-color: var(--bg);
 	color: var(--fg);
     margin: 0;
-    font-family: FiraMono;
-    text-size-adjust: none;
+    font-family: "Noto Sans Mono", "Courier New", monospace;
+    font-size: 16px;
 }
 
 h1, h2, h3 {
-    font-family: FiraMonoBold;
 }
 
 td {
@@ -218,7 +173,7 @@ article {
 }
 
 a {
-  font-family: FiraMonoMedium;
+    font-weight: 600;
 	color: var(--fg-highlight);
   text-decoration: none;
 }
@@ -229,38 +184,197 @@ a:hover {
     text-decoration: underline;
 }
 
-.aplayer-bar {
-    background-color: #506060 !important;
+
+
+
+/* Music Player */
+.music-player {
+  padding: 10px;
+  position: relative;
+  background: var(--bg-tertiary);
+  margin-bottom: 8px;
 }
 
-.aplayer .aplayer-list ol li {
-    transition: none !important;
+.player-cover {
+    display: block;
+    width: 100px;
+    height: 100px;
 }
 
-.aplayer-info, .aplayer-list, .aplayer .aplayer-list ol li.aplayer-list-light, .aplayer {
-  background-color:var(--bg-tertiary) !important
-}
-.aplayer .aplayer-list ol li:hover {
-  background-color:var(--bg) !important
-}
-.aplayer.aplayer-withlist .aplayer-info {
-  border:none !important;
-  border-bottom:none !important
-}
-.aplayer .aplayer-list ol li {
-  border-top:none !important
+.player-row {
+    display: flex;
 }
 
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon:hover path {
-    fill: #fff !important;
+.player-column {
+    width: 0px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.aplayer {
-    box-shadow: none !important;
-    margin: 0 !important;
-    /*font-family: FiraMono !important;*/
+.player-info {
+  text-align: center;
+  margin-bottom: 4px;
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.aplayer-list-author, .aplayer-author {
-    display: none !important;
+.player-info:hover{
+    overflow:visible;
+}
+
+.player-title {
+  padding:3px;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--fg);
+  flex-grow: 1;
+
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-title:hover {
+    background: var(--bg-tertiary);
+    overflow: visible;
+    min-width: fit-content;
+}
+
+.player-artist {
+  font-size: 9px;
+  color: var(--fg);
+}
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.player-btn {
+  background: var(--bg);
+  border: 1px solid var(--bg-shadow);
+  border-radius: 2px;
+  color: var(--fg);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.2s ease;
+}
+
+.player-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--bg-highlight);
+}
+
+.player-btn.play-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.player-progress {
+  margin-bottom: 2px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  transition: all 0.1s ease;
+  width: 100%;
+  height: 3px;
+  background: var(--bg);
+  border: 1px solid var(--bg-shadow);
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.player-progress:hover .progress-bar {
+  height: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--fg-highlight);
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.player-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--fg);
+}
+
+.volume-box {
+    height: 14px;
+    width: 65px;
+    display:flex;
+    align-items: center;
+}
+
+.volume-box:hover .volume-slider {
+    height: 12px;
+}
+
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.volume-icon {
+  font-size: 9px;
+  color: var(--fg-highlight);
+  cursor: pointer;
+}
+
+.volume-icon:hover {
+  color: var(--fg-highlight);
+}
+
+.volume-slider {
+  flex: 1;
+  height: 3px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--bg);
+  border: 1px solid var(--bg-shadow);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  transition: all 0.1s ease;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 8px;
+  height: 14px;
+  background: var(--fg-highlight);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 8px;
+  height: 14px;
+  background: var(--fg-highlight);
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
 }

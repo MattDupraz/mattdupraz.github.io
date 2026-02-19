@@ -124,6 +124,21 @@ The seminar happens in person in the seminar room of the Villa
 ### Attended conferences
 <table>
 <tr>
+    <td class="date">2026</td>
+    <td>
+    <ul>
+        <li>
+        <a href="https://mathconf.eu/adtg-2026/">
+            Developments in Discrete, Algorithmic and Tropical Geometry</a>, Berlin
+        </li>
+        <li>
+        <a href="https://www.mis.mpg.de/events/series/recent-developments-on-lattice-polytopes-in-leipzig">
+            Recent Developments on Lattice Polytopes</a>, Leipzig
+        </li>
+    </ul>
+    </td>
+</tr>
+<tr>
     <td class="date">2025</td>
     <td>
     <ul>
