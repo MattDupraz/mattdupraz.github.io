@@ -78,10 +78,8 @@ The seminar happens in person in the seminar room of the Villa
     </td>
     <td>
         <div class="event">
-            <span class="event-title">
-                <a href="https://mathconf.eu/yrccs-2026">
-                    Young Researchers Conference on Combinatorial Synergies</a>
-            </span>
+            <a href="https://mathconf.eu/yrccs-2026">
+                Young Researchers Conference on Combinatorial Synergies</a>,
             <span class="event-university">FU Berlin</span>
         </div>
     </td>
@@ -92,10 +90,8 @@ The seminar happens in person in the seminar room of the Villa
         <span class="event-year">2025</span>
     <td>
         <div class="event">
-            <span class="event-title">
-                <a href="https://sites.google.com/view/pklp2025">
-                    Positivity in K-Theory and Lattice Points</a>
-            </span>
+            <a href="https://sites.google.com/view/pklp2025">
+                Positivity in K-Theory and Lattice Points</a>,
             <span class="event-university">EPFL</span>
             <span class="event-city">Lausanne</span>
         </div>
@@ -112,10 +108,8 @@ The seminar happens in person in the seminar room of the Villa
     </td>
     <td>
         <div class="event">
-            <span class="event-title">
-                <a href="https://sites.google.com/view/gsmaac25/home">
-                    GSM Applied Algebra and Combinatorics</a>
-            </span>
+            <a href="https://sites.google.com/view/gsmaac25/home">
+                GSM Applied Algebra and Combinatorics</a>,
             <span class="event-university">University of Bologna</span>
         </div>
         <span class="talk-title">Tropical Linear Systems</span>
@@ -128,10 +122,13 @@ The seminar happens in person in the seminar room of the Villa
         2025
     </td>
     <td>
-        <a href="https://sites.google.com/view/coalggeohug/home">
-            Combinatorial Algebraic Geometry: Highlighting Underrepresented Genders</a>,
-        <i>Goethe Universität Frankfurt am Main</i><br>
-        Title: <i>Lattice counts and K-theory</i> (short talk)
+        <div class="event">
+            <a href="https://sites.google.com/view/coalggeohug/home">
+                Combinatorial Algebraic Geometry:
+                Highlighting Underrepresented Genders</a>,
+            <span class="event-university">Goethe Universität Frankfurt am Main</span>
+        </div>
+        <span class="talk-title">Lattice counts and K-theory</span> (short talk)
     </td>
 </tr>
 
@@ -141,10 +138,14 @@ The seminar happens in person in the seminar room of the Villa
         2025
     </td>
     <td>
-        <a href="https://sites.google.com/view/sfsuagc">
-            Algebra, Geometry, and Combinatorics Seminar</a>,
-        <i>San Francisco State University</i><br>
-        Title: <i>Tropical Linear Systems</i>
+        <div class="event">
+            <a href="https://sites.google.com/view/sfsuagc">
+                Algebra, Geometry, and Combinatorics Seminar</a>,
+            <span class="event-university">
+                San Francisco State University
+            </span>
+        </div> 
+        <span class="talk-title">Tropical Linear Systems</span>
     </td>
 </tr>
 </table>
@@ -157,11 +158,13 @@ The seminar happens in person in the seminar room of the Villa
     <td>
         <div class="event">
             <a href="https://mathconf.eu/adtg-2026/">
-                Developments in Discrete, Algorithmic and Tropical Geometry</a>, Berlin
+                Developments in Discrete, Algorithmic and Tropical Geometry</a>,
+            Berlin
         </div>
         <div class="event">
             <a href="https://www.mis.mpg.de/events/series/recent-developments-on-lattice-polytopes-in-leipzig">
-                Recent Developments on Lattice Polytopes</a>, Leipzig
+                Recent Developments on Lattice Polytopes</a>,
+            Leipzig
         </div>
     </td>
 </tr>
@@ -170,30 +173,36 @@ The seminar happens in person in the seminar room of the Villa
     <td>
         <div class="event">
             <a href="https://www.crm.cat/conferenceirpmdm2025/">
-                Combinatorial Geometries and Geometric Combinatorics Closing Conference</a>, Barcelona
+                Combinatorial Geometries and Geometric Combinatorics Closing Conference</a>,
+            Barcelona
         </div>
         <div class="event">
             <a href="https://www.mfo.de/www/activity/2542">
-                Arbeitsgemeinschaft: Combinatorial Hodge Theory</a>, Oberwolfach
+                Arbeitsgemeinschaft: Combinatorial Hodge Theory</a>,
+            Oberwolfach
         </div>
         <div class="event">
             <a href="https://www.combinatorial-synergies.de/activities/2025-09_AnnualConference/">
                 Combinatorial Synergies
-                Priority Program Annual Conference</a>, Hannover
+                Priority Program Annual Conference</a>,
+            Hannover
         </div>
         <div class="event">
             <a href="https://sites.google.com/view/gsmaac25/home">
                 6th Graduate Student Meeting in Applied
-                Algebra and Combinatorics</a>, Bologna
+                Algebra and Combinatorics</a>,
+            Bologna
         </div>
         <div class="event">
             <a href="https://sites.google.com/view/coalggeohug/home">
                 Combinatorial Algebraic Geometry: Highlighting
-                Underrepresented Genders</a>, Frankfurt
+                Underrepresented Genders</a>,
+            Frankfurt
         </div>
         <div class="event">
             <a href="https://www.mis.mpg.de/events/series/combinatorial-synergies-east">
-                Combinatorial Synergies East</a>, Leipzig
+                Combinatorial Synergies East</a>,
+            Leipzig
         </div>
     </td>
 </tr>
@@ -203,15 +212,18 @@ The seminar happens in person in the seminar room of the Villa
     <td>
         <div class="event">
             <a href="https://sites.google.com/view/geometry-without-geometry/home">
-                Geometry without Geometry</a>, Frankfurt
+                Geometry without Geometry</a>,
+            Frankfurt
         </div>
         <div class="event">
-        <a href="https://sites.google.com/view/workshop-tropical-geometry/home">
-            Tropical Geometry: Moduli Spaces and Matroids</a>, Frankfurt
+            <a href="https://sites.google.com/view/workshop-tropical-geometry/home">
+                Tropical Geometry: Moduli Spaces and Matroids</a>,
+            Frankfurt
         </div>
         <div class="event">
-        <a href="https://www.combinatorial-synergies.de/activities/2024_09_KickOff/">
-            Combinatorial Synergies Kick-off Meeting</a>, Osnabrück
+            <a href="https://www.combinatorial-synergies.de/activities/2024_09_KickOff/">
+                Combinatorial Synergies Kick-off Meeting</a>,
+            Osnabrück
         </div>
         <div class="event">
             <a href="https://math.uniandes.edu.co/eventos/2024/trop/">

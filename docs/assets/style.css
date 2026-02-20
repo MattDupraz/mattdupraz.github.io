@@ -77,10 +77,6 @@ td {
     margin-top: 8px;
 }
 
-.event a {
-    float:left;
-}
-
 .event span::after {
     content: ",";
     font-style: normal;
@@ -100,7 +96,6 @@ td {
 }
 
 .talk-title {
-    display: block;
     font-style:italic;
 }
 
