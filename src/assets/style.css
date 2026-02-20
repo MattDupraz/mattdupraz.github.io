@@ -14,7 +14,7 @@
     display: inline-block;
     width: 32px;
     height: 32px;
-    background-image: url("icons/sprites.png");
+    background-image: url("sprites/icons.png");
     background-repeat: no-repeat;
     transform: scale(0.7);
     margin-right: 5px;
@@ -158,16 +158,15 @@ article {
     height: 20;
 }
 
-.valign {
+.link-social {
 	display: flex;
 	align-items: center;
-}
-
-.link-social {
     margin-top: 10px;
 }
 
 .heading {
+	display: flex;
+	align-items: center;
     margin-top: -22px;
     margin-bottom: -10px;
 }
@@ -185,7 +184,22 @@ a:hover {
 }
 
 
+.links-images {
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+}
 
+.link-image {
+    flex: 1 1 0;
+    text-align: center;
+}
+
+.link-image img {
+    box-sizing:border-box;
+    width: 100%;
+    padding: 10px;
+}
 
 /* Music Player */
 .music-player {

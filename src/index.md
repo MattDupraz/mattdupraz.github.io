@@ -4,7 +4,7 @@ layout: main.html
 
 <article id="about-me">
 
-<div class="valign heading">
+<div class="heading">
 <span class="icon info"></span>
 <h2>About me</h2>
 </div>
@@ -33,7 +33,7 @@ polytopes and objects from algebraic geometry.
 
 <article id="research">
 
-<div class="valign heading">
+<div class="heading">
 <span class="icon research"></span>
 <h2>Research</h2>
 </div>
@@ -53,7 +53,7 @@ polytopes and objects from algebraic geometry.
 
 <article id="activities">
 
-<div class="valign heading">
+<div class="heading">
 <div class="icon activities"></div>
 <h2>Activities</h2>
 </div>
@@ -120,6 +120,7 @@ The seminar happens in person in the seminar room of the Villa
     </td>
 </tr>
 </table>
+
 
 ### Attended conferences
 <table>
@@ -195,5 +196,6 @@ The seminar happens in person in the seminar room of the Villa
     </ul>
     </td>
 </tr>
+
 </table>
 </article>
