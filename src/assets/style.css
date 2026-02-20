@@ -73,11 +73,35 @@ td {
     width: 90px;
 }
 
-.event-entry {
-    margin-bottom: 7px;
+.event + .event {
+    margin-top: 8px;
 }
 
-.container {
+.event a {
+    float:left;
+}
+
+.event span::after {
+    content: ",";
+    font-style: normal;
+}
+
+.event span:last-of-type::after {
+    content: "";
+}
+
+.event-university {
+    font-style: italic;
+}
+
+.talk-title::before {
+    content: "Title: ";
+    font-style: normal;
+}
+
+.talk-title {
+    display: block;
+    font-style:italic;
 }
 
 #left-column {
