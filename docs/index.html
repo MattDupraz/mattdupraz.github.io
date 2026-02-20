@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Matt Dupraz</title>
 
@@ -7,90 +7,91 @@
         <link rel="preload" href="assets/sprites/neko.png" as="image" type="image/png">
         <link rel="stylesheet" href="assets/style.css">
         <link rel="icon" href="data:;base64,=">
+
+        <meta charset="utf-8">
+        <meta name="author" content="Matt Dupraz">
     </head>
 
     <body>
-        <a id="top"></a>
-        <main class="container">
-            <section id="left-column">
-                <article id="personal-info">
-                    <div class="deindent">
-                        <a href="assets/images/portrait.jpg">
-                            <img class="portrait" style="width: 100%" src="assets/images/portrait_small.jpg"/>
-                        </a>
-                    </div>
-                    <h1>Matt Dupraz</h1>
-                    <p>PhD candidate at FU Berlin</p>
-                    <div class="link-social">
-                        <div class="icon email"></div>
-                        <a href="mailto:matthew.dupraz@fu-berlin.de">matthew.dupraz@fu-berlin.de</a>
-                    </div>
-                    <div class="link-social">
-                        <div class="icon github"></div>
-                        <a href="https://github.com/MattDupraz">@MattDupraz</a>
-                    </div>
-                </article>
-
-                <article id="resources">
-                    <div class="heading">
-                        <div class="icon resources"></div>
-                        <h2>Resources</h2>
-                    </div>
-
-                    <div class="links-images">
-                        <a class="link-image" href="TLS_Interval">
-                            <img src="assets/images/tropical_linear_series.svg">
-                            Tropical Linear Series on an Interval
-                        </a>
-                        <a class="link-image" href="Graph-Linear-Systems">
-                            <img src="assets/images/graph-divisor.png">
-                            Divisors on Graphs in Julia
-                        </a>
-                    </div>
-                </article>
-
-                <article id="music">
-                    <div class="heading">
-                        <div class="icon music"></div>
-                        <h2>Music</h2>
-                    </div>
-
-                    <p>
-                        I enjoy making music in my free time, check out some of my
-                        songs!
-                    </p>
-
-                    <div class="music-player deindent" id="musicPlayer" style="display:none;">
-    <div class="player-row">
-        <a href="" target="_blank" id="songCoverLink">
-            <img class="player-cover" id="songCover"/>
-        </a>
-        <div class="player-column">
-            <div class="player-info">
-                <div class="player-title" id="songTitle">song name</div>
-                <!--<div class="player-artist" id="songArtist">artist name</div>-->
-            </div>
-            <div class="player-controls">
-                <button class="player-btn" id="prevBtn" title="Previous">⏮</button>
-                <button class="player-btn play-btn" id="playBtn" title="Play/Pause">▶</button>
-                <button class="player-btn" id="nextBtn" title="Next">⏭</button>
-                <!--<button class="player-btn" id="volumeIcon" title="Mute/Unmute">♪</button>-->
-                <div class="volume-box">
-                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+        <aside id="left-column">
+            <article id="personal-info">
+                <div class="deindent">
+                    <a href="assets/images/portrait.jpg"
+                       title="Open full-sized portrait">
+                        <img class="portrait"
+                             title="Portrait"
+                             src="assets/images/portrait_small.jpg"/>
+                    </a>
                 </div>
-            </div>
-            <div class="player-progress">
-                <div class="progress-bar" id="progressBar">
-                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                <h1>Matt Dupraz</h1>
+                <p>PhD candidate at FU Berlin</p>
+                <a href="mailto:matthew.dupraz@fu-berlin.de" class="link-social">
+                    <span class="icon email"></span>
+                    matthew.dupraz@fu-berlin.de
+                </a>
+                <a class="link-social" href="https://github.com/MattDupraz">
+                    <span class="icon github"></span>
+                    @MattDupraz
+                </a>
+            </article>
+
+            <article id="resources">
+                <h2 class="heading">
+                    <span class="icon resources"></span>
+                    Resources
+                </h2>
+
+                <div class="links-images">
+                    <a class="link-image" href="TLS_Interval">
+                        <img src="assets/images/tropical_linear_series.svg"
+                             title="TLS applet thumbnail">
+                        Tropical Linear Series on an Interval
+                    </a>
+                    <a class="link-image" href="Graph-Linear-Systems">
+                        <img src="assets/images/graph-divisor.png"
+                             title="Divisor on a graph">
+                        Divisors on Graphs in Julia
+                    </a>
                 </div>
-            </div>
-            <div class="player-time">
-                <span id="currentTime">start</span>
-                <span id="duration">end</span>
+            </article>
+
+            <article id="music">
+                <h2 class="heading">
+                    <span class="icon music"></span>
+                    Music
+                </h2>
+
+                <p>
+                    I enjoy making music in my free time, check out some of my
+                    songs!
+                </p>
+
+                <div class="music-player deindent" id="musicPlayer" style="display:none;">
+    <a href="" target="_blank" id="songCoverLink" title="Open song cover">
+        <img class="player-cover" id="songCover" title="Song cover"/>
+    </a>
+    <div class="player-column">
+        <div class="player-info">
+            <div class="player-title" id="songTitle">[song name]</div>
+        </div>
+        <div class="player-controls">
+            <button class="player-btn" id="prevBtn" title="Previous">⏮</button>
+            <button class="player-btn play-btn" id="playBtn" title="Play/Pause">▶</button>
+            <button class="player-btn" id="nextBtn" title="Next">⏭</button>
+            <div class="volume-box">
+                <input type="range" class="volume-slider" id="volumeSlider"
+                    title="Volume" min="0" max="100" value="70">
             </div>
         </div>
-    </div>
-    <div class="player-row">
+        <div class="player-progress">
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+            </div>
+        </div>
+        <div class="player-time">
+            <span id="currentTime">[start]</span>
+            <span id="duration">[end]</span>
+        </div>
     </div>
     <!-- Hidden audio element -->
     <audio id="audioPlayer" preload="metadata" src="">
@@ -226,28 +227,28 @@
     audio.volume = 0.7;
     loadTrack(0);
 
-    musicPlayer.style.display = "block";
+    musicPlayer.style = "";
 </script>
 
 
-                    <a href="https://soundcloud.com/quux">▸ SoundCloud</a>
-                </article>
+                <a href="https://soundcloud.com/quux">▸ SoundCloud</a>
+            </article>
 
-                <div class="fill">
-                    <div class="back-to-top" href="#top">
-                        <a href="#top">
-                            Back to top
-                        </a>
-                    </div>
+            <div class="fill">
+                <div class="back-to-top" href="#top">
+                    <a href="#top">
+                        Back to top
+                    </a>
                 </div>
-            </section>
+            </div>
+        </aside>
 
-            <section id="right-column">
-                <article id="about-me">
-<div class="heading">
-<span class="icon info"></span>
-<h2>About me</h2>
-</div>
+        <main id="right-column">
+            <article id="about-me">
+<h2 class="heading">
+    <span class="icon info"></span>
+    About me
+</h2>
 <p>Hi! I am a PhD student at Freie Universität Berlin broadly interested in
 interactions between algebraic geometry and combinatorics.
 I started my PhD in
@@ -267,10 +268,10 @@ I enjoy studying interactions between objects such as matroids, hyperplane arran
 polytopes and objects from algebraic geometry.</p>
 </article>
 <article id="research">
-<div class="heading">
-<span class="icon research"></span>
-<h2>Research</h2>
-</div>
+<h2 class="heading">
+    <span class="icon research"></span>
+    Research
+</h2>
 <h3>Preprints</h3>
 <ul>
 <li><a href="https://arxiv.org/abs/2508.20062">Tropical linear series and matroids</a>,
@@ -285,10 +286,10 @@ Federale de Lausanne, 2024</li>
 </ul>
 </article>
 <article id="activities">
-<div class="heading">
-<div class="icon activities"></div>
-<h2>Activities</h2>
-</div>
+<h2 class="heading">
+    <span class="icon activities"></span>
+    Activities
+</h2>
 <h3>Villa Student Seminar</h3>
 <p>This is the weekly student seminar of the Discrete Geometry and Topological Combinatorics group of Freie Universität Berlin, organized by and for PhD and Masters students. We provide a supportive, friendly place for students to give talks on their current research or topics they are interested in. The environment also facilitates opportunities for students to practice speaking.</p>
 <p>Topics of the talks vary depending on the interests of the speaker, mostly in the fields of discrete geometry, topology, and combinatorics.  Participants are expected to actively participate by asking questions and providing feedback, as well as give a talk or chair at least once per semester.</p>
@@ -296,130 +297,135 @@ Federale de Lausanne, 2024</li>
 (Arnimallee 2). If you are interested in joining, feel free to subscribe to our
 <a href="https://lists.fu-berlin.de/listinfo/villastudentseminar">mailing list</a>.</p>
 <h3>Organization</h3>
-<table>
+<table class="event-list">
 <tr>
-    <td class="date">May 4-8<br>2026</td>
-    <td><a
-    href="https://mathconf.eu/yrccs-2026">Young Researchers Conference on Combinatorial Synergies</a>,
-    <i>FU Berlin</i><br>
+    <td>May 4-8<br>2026</td>
+    <td>
+        <a href="https://mathconf.eu/yrccs-2026">
+            Young Researchers Conference on Combinatorial Synergies</a>,
+        <i>FU Berlin</i>
     </td>
 </tr>
 <tr>
-    <td class="date">Aug 11-15<br>2025</td>
-    <td><a
-    href="https://sites.google.com/view/pklp2025">Positivity
-    in K-Theory and Lattice Points</a>,
-    <i>EPFL</i>, Lausanne<br>
+    <td>Aug 11-15<br>2025</td>
+    <td>
+        <a href="https://sites.google.com/view/pklp2025">
+            Positivity in K-Theory and Lattice Points</a>,
+        <i>EPFL</i>, Lausanne
     </td>
 </tr>
 </table>
 <h3>Invited talks</h3>
-<table>
+<table class="event-list">
 <tr>
-    <td class="date">Apr 29<br>2025</td>
-    <td><a href="https://sites.google.com/view/gsmaac25/home">GSM Applied Algebra and Combinatorics</a>,
-    <i>University of Bologna</i><br>
-    Title: <i>Tropical Linear Systems</i>
+    <td>
+        Apr 29<br>
+        2025
+    </td>
+    <td>
+        <a href="https://sites.google.com/view/gsmaac25/home">
+            GSM Applied Algebra and Combinatorics</a>,
+        <i>University of Bologna</i><br>
+        Title: <i>Tropical Linear Systems</i>
     </td>
 </tr>
 <tr>
-    <td class="date">Apr 1<br>2025</td>
-    <td><a
-    href="https://sites.google.com/view/coalggeohug/home">Combinatorial
-    Algebraic Geometry: Highlighting Underrepresented
-    Genders</a>,
-    <i>Goethe Universität Frankfurt am Main</i><br>
-    Title: <i>Lattice counts and K-theory</i> (short
-    talk)
+    <td>
+        Apr 1<br>
+        2025
+    </td>
+    <td>
+        <a href="https://sites.google.com/view/coalggeohug/home">
+            Combinatorial Algebraic Geometry: Highlighting Underrepresented Genders</a>,
+        <i>Goethe Universität Frankfurt am Main</i><br>
+        Title: <i>Lattice counts and K-theory</i> (short talk)
     </td>
 </tr>
 <tr>
-    <td class="date">Feb 12<br>2025</td>
-    <td><a
-    href="https://sites.google.com/view/sfsuagc">Algebra,
-    Geometry, and Combinatorics Seminar</a>,
-    <i>San Francisco State University</i><br>
-    Title: <i>Tropical Linear Systems</i>
+    <td>
+        Feb 12<br>
+        2025
+    </td>
+    <td>
+        <a href="https://sites.google.com/view/sfsuagc">
+            Algebra, Geometry, and Combinatorics Seminar</a>,
+        <i>San Francisco State University</i><br>
+        Title: <i>Tropical Linear Systems</i>
     </td>
 </tr>
 </table>
 <h3>Attended conferences</h3>
-<table>
+<table class="event-list">
 <tr>
-    <td class="date">2026</td>
+    <td>2026</td>
     <td>
-    <ul>
-        <li>
-        <a href="https://mathconf.eu/adtg-2026/">
-            Developments in Discrete, Algorithmic and Tropical Geometry</a>, Berlin
-        </li>
-        <li>
-        <a href="https://www.mis.mpg.de/events/series/recent-developments-on-lattice-polytopes-in-leipzig">
-            Recent Developments on Lattice Polytopes</a>, Leipzig
-        </li>
-    </ul>
+        <div class="event-entry">
+            <a href="https://mathconf.eu/adtg-2026/">
+                Developments in Discrete, Algorithmic and Tropical Geometry</a>, Berlin
+        </div>
+        <div class="event-entry">
+            <a href="https://www.mis.mpg.de/events/series/recent-developments-on-lattice-polytopes-in-leipzig">
+                Recent Developments on Lattice Polytopes</a>, Leipzig
+        </div>
     </td>
 </tr>
 <tr>
-    <td class="date">2025</td>
+    <td>2025</td>
     <td>
-    <ul>
-        <li>
-        <a href="https://www.crm.cat/conferenceirpmdm2025/">
-            Combinatorial Geometries and Geometric Combinatorics Closing Conference</a>, Barcelona
-        </li>
-        <li>
-        <a href="https://www.mfo.de/www/activity/2542">
-            Arbeitsgemeinschaft: Combinatorial Hodge Theory</a>, Oberwolfach
-        </li>
-        <li>
-        <a href="https://www.combinatorial-synergies.de/activities/2025-09_AnnualConference/">
-            Combinatorial Synergies
-            Priority Program Annual Conference</a>, Hannover
-        </li>
-        <li>
-        <a href="https://sites.google.com/view/gsmaac25/home">
-            6th Graduate Student Meeting in Applied
-            Algebra and Combinatorics</a>, Bologna
-        </li>
-        <li>
-        <a href="https://sites.google.com/view/coalggeohug/home">
-            Combinatorial Algebraic Geometry: Highlighting
-            Underrepresented Genders</a>, Frankfurt
-        </li>
-        <li>
-        <a href="https://www.mis.mpg.de/events/series/combinatorial-synergies-east">
-            Combinatorial Synergies East</a>, Leipzig
-        </li>
-    </ul>
+        <div class="event-entry">
+            <a href="https://www.crm.cat/conferenceirpmdm2025/">
+                Combinatorial Geometries and Geometric Combinatorics Closing Conference</a>, Barcelona
+        </div>
+        <div class="event-entry">
+            <a href="https://www.mfo.de/www/activity/2542">
+                Arbeitsgemeinschaft: Combinatorial Hodge Theory</a>, Oberwolfach
+        </div>
+        <div class="event-entry">
+            <a href="https://www.combinatorial-synergies.de/activities/2025-09_AnnualConference/">
+                Combinatorial Synergies
+                Priority Program Annual Conference</a>, Hannover
+        </div>
+        <div class="event-entry">
+            <a href="https://sites.google.com/view/gsmaac25/home">
+                6th Graduate Student Meeting in Applied
+                Algebra and Combinatorics</a>, Bologna
+        </div>
+        <div class="event-entry">
+            <a href="https://sites.google.com/view/coalggeohug/home">
+                Combinatorial Algebraic Geometry: Highlighting
+                Underrepresented Genders</a>, Frankfurt
+        </div>
+        <div class="event-entry">
+            <a href="https://www.mis.mpg.de/events/series/combinatorial-synergies-east">
+                Combinatorial Synergies East</a>, Leipzig
+        </div>
     </td>
 </tr>
 <tr>
-    <td class="date">
-    2024
-    </td>
+    <td>2024</td>
     <td>
-    <ul><li>
-        <a href="https://sites.google.com/view/geometry-without-geometry/home">
-            Geometry without Geometry</a>, Frankfurt
-        </li><li>
+        <div class="event-entry">
+            <a href="https://sites.google.com/view/geometry-without-geometry/home">
+                Geometry without Geometry</a>, Frankfurt
+        </div>
+        <div class="event-entry">
         <a href="https://sites.google.com/view/workshop-tropical-geometry/home">
             Tropical Geometry: Moduli Spaces and Matroids</a>, Frankfurt
-        </li><li>
+        </div>
+        <div class="event-entry">
         <a href="https://www.combinatorial-synergies.de/activities/2024_09_KickOff/">
             Combinatorial Synergies Kick-off Meeting</a>, Osnabrück
-        </li><li>
-        <a href="https://math.uniandes.edu.co/eventos/2024/trop/">
-            Colombian Encounter of Tropical and Non-Archimedean Geometry</a>,
-        Bogotá
-        </li>
-    </ul>
+        </div>
+        <div class="event-entry">
+            <a href="https://math.uniandes.edu.co/eventos/2024/trop/">
+                Colombian Encounter of Tropical and Non-Archimedean Geometry</a>,
+            Bogotá
+        <div>
     </td>
 </tr>
 </table>
 </article>
 
-            </section>
         </main>
     </body>
 </html>

@@ -56,9 +56,11 @@ body {
     margin: 0;
     font-family: "Noto Sans Mono", "Courier New", monospace;
     font-size: 16px;
-}
 
-h1, h2, h3 {
+    display: flex;
+    padding: 20px;
+    padding-bottom: 0px;
+    min-width: 800px;
 }
 
 td {
@@ -67,26 +69,15 @@ td {
     padding: 10px;
 }
 
-.date {
+.event-list tr td:first-child {
     width: 90px;
 }
 
-td ul {
-  list-style-type: none;
-    padding-left: 0px;
-    margin-bottom: -10px;
-    margin-top: 0px;
-}
-
-td ul li {
-    margin-bottom: 10px;
+.event-entry {
+    margin-bottom: 7px;
 }
 
 .container {
-    display: flex;
-    padding: 20px;
-    padding-bottom: 0px;
-    min-width: 800px;
 }
 
 #left-column {
@@ -123,6 +114,7 @@ article {
 
 .portrait {
     display: block;
+    width: 100%;
 }
 
 .publications {
@@ -164,11 +156,10 @@ article {
     margin-top: 10px;
 }
 
-.heading {
+.heading{
 	display: flex;
 	align-items: center;
-    margin-top: -22px;
-    margin-bottom: -10px;
+    margin-top: 0px;
 }
 
 a {
@@ -207,16 +198,13 @@ a:hover {
   position: relative;
   background: var(--bg-tertiary);
   margin-bottom: 8px;
+  display: flex;
 }
 
 .player-cover {
     display: block;
     width: 100px;
     height: 100px;
-}
-
-.player-row {
-    display: flex;
 }
 
 .player-column {

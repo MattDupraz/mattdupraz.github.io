@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Matt Dupraz</title>
 
@@ -7,76 +7,81 @@
         <link rel="preload" href="assets/sprites/neko.png" as="image" type="image/png">
         <link rel="stylesheet" href="assets/style.css">
         <link rel="icon" href="data:;base64,=">
+
+        <meta charset="utf-8">
+        <meta name="author" content="Matt Dupraz">
     </head>
 
     <body>
-        <a id="top"></a>
-        <main class="container">
-            <section id="left-column">
-                <article id="personal-info">
-                    <div class="deindent">
-                        <a href="assets/images/portrait.jpg">
-                            <img class="portrait" style="width: 100%" src="assets/images/portrait_small.jpg"/>
-                        </a>
-                    </div>
-                    <h1>Matt Dupraz</h1>
-                    <p>PhD candidate at FU Berlin</p>
-                    <div class="link-social">
-                        <div class="icon email"></div>
-                        <a href="mailto:matthew.dupraz@fu-berlin.de">matthew.dupraz@fu-berlin.de</a>
-                    </div>
-                    <div class="link-social">
-                        <div class="icon github"></div>
-                        <a href="https://github.com/MattDupraz">@MattDupraz</a>
-                    </div>
-                </article>
-
-                <article id="resources">
-                    <div class="heading">
-                        <div class="icon resources"></div>
-                        <h2>Resources</h2>
-                    </div>
-
-                    <div class="links-images">
-                        <a class="link-image" href="TLS_Interval">
-                            <img src="assets/images/tropical_linear_series.svg">
-                            Tropical Linear Series on an Interval
-                        </a>
-                        <a class="link-image" href="Graph-Linear-Systems">
-                            <img src="assets/images/graph-divisor.png">
-                            Divisors on Graphs in Julia
-                        </a>
-                    </div>
-                </article>
-
-                <article id="music">
-                    <div class="heading">
-                        <div class="icon music"></div>
-                        <h2>Music</h2>
-                    </div>
-
-                    <p>
-                        I enjoy making music in my free time, check out some of my
-                        songs!
-                    </p>
-
-                    {% include '_music_player.html' %}
-
-                    <a href="https://soundcloud.com/quux">▸ SoundCloud</a>
-                </article>
-
-                <div class="fill">
-                    <div class="back-to-top" href="#top">
-                        <a href="#top">
-                            Back to top
-                        </a>
-                    </div>
+        <aside id="left-column">
+            <article id="personal-info">
+                <div class="deindent">
+                    <a href="assets/images/portrait.jpg"
+                       title="Open full-sized portrait">
+                        <img class="portrait"
+                             title="Portrait"
+                             src="assets/images/portrait_small.jpg"/>
+                    </a>
                 </div>
-            </section>
+                <h1>Matt Dupraz</h1>
+                <p>PhD candidate at FU Berlin</p>
+                <a href="mailto:matthew.dupraz@fu-berlin.de" class="link-social">
+                    <span class="icon email"></span>
+                    matthew.dupraz@fu-berlin.de
+                </a>
+                <a class="link-social" href="https://github.com/MattDupraz">
+                    <span class="icon github"></span>
+                    @MattDupraz
+                </a>
+            </article>
 
-            <section id="right-column">
-                {{ content }}
-            </section>
+            <article id="resources">
+                <h2 class="heading">
+                    <span class="icon resources"></span>
+                    Resources
+                </h2>
+
+                <div class="links-images">
+                    <a class="link-image" href="TLS_Interval">
+                        <img src="assets/images/tropical_linear_series.svg"
+                             title="TLS applet thumbnail">
+                        Tropical Linear Series on an Interval
+                    </a>
+                    <a class="link-image" href="Graph-Linear-Systems">
+                        <img src="assets/images/graph-divisor.png"
+                             title="Divisor on a graph">
+                        Divisors on Graphs in Julia
+                    </a>
+                </div>
+            </article>
+
+            <article id="music">
+                <h2 class="heading">
+                    <span class="icon music"></span>
+                    Music
+                </h2>
+
+                <p>
+                    I enjoy making music in my free time, check out some of my
+                    songs!
+                </p>
+
+                {% include '_music_player.html' %}
+
+                <a href="https://soundcloud.com/quux">▸ SoundCloud</a>
+            </article>
+
+            <div class="fill">
+                <div class="back-to-top" href="#top">
+                    <a href="#top">
+                        Back to top
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <main id="right-column">
+            {{ content }}
         </main>
     </body>
 </html>

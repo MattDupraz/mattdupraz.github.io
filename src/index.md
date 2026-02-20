@@ -4,10 +4,10 @@ layout: main.html
 
 <article id="about-me">
 
-<div class="heading">
-<span class="icon info"></span>
-<h2>About me</h2>
-</div>
+<h2 class="heading">
+    <span class="icon info"></span>
+    About me
+</h2>
 
 Hi! I am a PhD student at Freie Universität Berlin broadly interested in
 interactions between algebraic geometry and combinatorics.
@@ -33,10 +33,10 @@ polytopes and objects from algebraic geometry.
 
 <article id="research">
 
-<div class="heading">
-<span class="icon research"></span>
-<h2>Research</h2>
-</div>
+<h2 class="heading">
+    <span class="icon research"></span>
+    Research
+</h2>
 
 ### Preprints
 - [Tropical linear series and matroids](https://arxiv.org/abs/2508.20062), 
@@ -53,10 +53,10 @@ polytopes and objects from algebraic geometry.
 
 <article id="activities">
 
-<div class="heading">
-<div class="icon activities"></div>
-<h2>Activities</h2>
-</div>
+<h2 class="heading">
+    <span class="icon activities"></span>
+    Activities
+</h2>
 
 ### Villa Student Seminar
 
@@ -70,130 +70,136 @@ The seminar happens in person in the seminar room of the Villa
 
 ### Organization
 
-<table>
+<table class="event-list">
 <tr>
-    <td class="date">May 4-8<br>2026</td>
-    <td><a
-    href="https://mathconf.eu/yrccs-2026">Young Researchers Conference on Combinatorial Synergies</a>,
-    <i>FU Berlin</i><br>
+    <td>May 4-8<br>2026</td>
+    <td>
+        <a href="https://mathconf.eu/yrccs-2026">
+            Young Researchers Conference on Combinatorial Synergies</a>,
+        <i>FU Berlin</i>
     </td>
 </tr>
 <tr>
-    <td class="date">Aug 11-15<br>2025</td>
-    <td><a
-    href="https://sites.google.com/view/pklp2025">Positivity
-    in K-Theory and Lattice Points</a>,
-    <i>EPFL</i>, Lausanne<br>
+    <td>Aug 11-15<br>2025</td>
+    <td>
+        <a href="https://sites.google.com/view/pklp2025">
+            Positivity in K-Theory and Lattice Points</a>,
+        <i>EPFL</i>, Lausanne
     </td>
 </tr>
 </table>
 
 ### Invited talks
-<table>
+<table class="event-list">
 <tr>
-    <td class="date">Apr 29<br>2025</td>
-    <td><a href="https://sites.google.com/view/gsmaac25/home">GSM Applied Algebra and Combinatorics</a>,
-    <i>University of Bologna</i><br>
-    Title: <i>Tropical Linear Systems</i>
+    <td>
+        Apr 29<br>
+        2025
+    </td>
+    <td>
+        <a href="https://sites.google.com/view/gsmaac25/home">
+            GSM Applied Algebra and Combinatorics</a>,
+        <i>University of Bologna</i><br>
+        Title: <i>Tropical Linear Systems</i>
     </td>
 </tr>
 
 <tr>
-    <td class="date">Apr 1<br>2025</td>
-    <td><a
-    href="https://sites.google.com/view/coalggeohug/home">Combinatorial
-    Algebraic Geometry: Highlighting Underrepresented
-    Genders</a>,
-    <i>Goethe Universität Frankfurt am Main</i><br>
-    Title: <i>Lattice counts and K-theory</i> (short
-    talk)
+    <td>
+        Apr 1<br>
+        2025
+    </td>
+    <td>
+        <a href="https://sites.google.com/view/coalggeohug/home">
+            Combinatorial Algebraic Geometry: Highlighting Underrepresented Genders</a>,
+        <i>Goethe Universität Frankfurt am Main</i><br>
+        Title: <i>Lattice counts and K-theory</i> (short talk)
     </td>
 </tr>
 
 <tr>
-    <td class="date">Feb 12<br>2025</td>
-    <td><a
-    href="https://sites.google.com/view/sfsuagc">Algebra,
-    Geometry, and Combinatorics Seminar</a>,
-    <i>San Francisco State University</i><br>
-    Title: <i>Tropical Linear Systems</i>
+    <td>
+        Feb 12<br>
+        2025
+    </td>
+    <td>
+        <a href="https://sites.google.com/view/sfsuagc">
+            Algebra, Geometry, and Combinatorics Seminar</a>,
+        <i>San Francisco State University</i><br>
+        Title: <i>Tropical Linear Systems</i>
     </td>
 </tr>
 </table>
 
 
 ### Attended conferences
-<table>
+<table class="event-list">
 <tr>
-    <td class="date">2026</td>
+    <td>2026</td>
     <td>
-    <ul>
-        <li>
-        <a href="https://mathconf.eu/adtg-2026/">
-            Developments in Discrete, Algorithmic and Tropical Geometry</a>, Berlin
-        </li>
-        <li>
-        <a href="https://www.mis.mpg.de/events/series/recent-developments-on-lattice-polytopes-in-leipzig">
-            Recent Developments on Lattice Polytopes</a>, Leipzig
-        </li>
-    </ul>
+        <div class="event-entry">
+            <a href="https://mathconf.eu/adtg-2026/">
+                Developments in Discrete, Algorithmic and Tropical Geometry</a>, Berlin
+        </div>
+        <div class="event-entry">
+            <a href="https://www.mis.mpg.de/events/series/recent-developments-on-lattice-polytopes-in-leipzig">
+                Recent Developments on Lattice Polytopes</a>, Leipzig
+        </div>
     </td>
 </tr>
 <tr>
-    <td class="date">2025</td>
+    <td>2025</td>
     <td>
-    <ul>
-        <li>
-        <a href="https://www.crm.cat/conferenceirpmdm2025/">
-            Combinatorial Geometries and Geometric Combinatorics Closing Conference</a>, Barcelona
-        </li>
-        <li>
-        <a href="https://www.mfo.de/www/activity/2542">
-            Arbeitsgemeinschaft: Combinatorial Hodge Theory</a>, Oberwolfach
-        </li>
-        <li>
-        <a href="https://www.combinatorial-synergies.de/activities/2025-09_AnnualConference/">
-            Combinatorial Synergies
-            Priority Program Annual Conference</a>, Hannover
-        </li>
-        <li>
-        <a href="https://sites.google.com/view/gsmaac25/home">
-            6th Graduate Student Meeting in Applied
-            Algebra and Combinatorics</a>, Bologna
-        </li>
-        <li>
-        <a href="https://sites.google.com/view/coalggeohug/home">
-            Combinatorial Algebraic Geometry: Highlighting
-            Underrepresented Genders</a>, Frankfurt
-        </li>
-        <li>
-        <a href="https://www.mis.mpg.de/events/series/combinatorial-synergies-east">
-            Combinatorial Synergies East</a>, Leipzig
-        </li>
-    </ul>
+        <div class="event-entry">
+            <a href="https://www.crm.cat/conferenceirpmdm2025/">
+                Combinatorial Geometries and Geometric Combinatorics Closing Conference</a>, Barcelona
+        </div>
+        <div class="event-entry">
+            <a href="https://www.mfo.de/www/activity/2542">
+                Arbeitsgemeinschaft: Combinatorial Hodge Theory</a>, Oberwolfach
+        </div>
+        <div class="event-entry">
+            <a href="https://www.combinatorial-synergies.de/activities/2025-09_AnnualConference/">
+                Combinatorial Synergies
+                Priority Program Annual Conference</a>, Hannover
+        </div>
+        <div class="event-entry">
+            <a href="https://sites.google.com/view/gsmaac25/home">
+                6th Graduate Student Meeting in Applied
+                Algebra and Combinatorics</a>, Bologna
+        </div>
+        <div class="event-entry">
+            <a href="https://sites.google.com/view/coalggeohug/home">
+                Combinatorial Algebraic Geometry: Highlighting
+                Underrepresented Genders</a>, Frankfurt
+        </div>
+        <div class="event-entry">
+            <a href="https://www.mis.mpg.de/events/series/combinatorial-synergies-east">
+                Combinatorial Synergies East</a>, Leipzig
+        </div>
     </td>
 </tr>
 
 <tr>
-    <td class="date">
-    2024
-    </td>
+    <td>2024</td>
     <td>
-    <ul><li>
-        <a href="https://sites.google.com/view/geometry-without-geometry/home">
-            Geometry without Geometry</a>, Frankfurt
-        </li><li>
+        <div class="event-entry">
+            <a href="https://sites.google.com/view/geometry-without-geometry/home">
+                Geometry without Geometry</a>, Frankfurt
+        </div>
+        <div class="event-entry">
         <a href="https://sites.google.com/view/workshop-tropical-geometry/home">
             Tropical Geometry: Moduli Spaces and Matroids</a>, Frankfurt
-        </li><li>
+        </div>
+        <div class="event-entry">
         <a href="https://www.combinatorial-synergies.de/activities/2024_09_KickOff/">
             Combinatorial Synergies Kick-off Meeting</a>, Osnabrück
-        </li><li>
-        <a href="https://math.uniandes.edu.co/eventos/2024/trop/">
-            Colombian Encounter of Tropical and Non-Archimedean Geometry</a>,
-        Bogotá
-        </li>
-    </ul>
+        </div>
+        <div class="event-entry">
+            <a href="https://math.uniandes.edu.co/eventos/2024/trop/">
+                Colombian Encounter of Tropical and Non-Archimedean Geometry</a>,
+            Bogotá
+        <div>
     </td>
 </tr>
 
