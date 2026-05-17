@@ -58,6 +58,7 @@ polytopes and objects from algebraic geometry.
     Activities
 </h2>
 
+<!--
 ### Villa Student Seminar
 
 This is the weekly student seminar of the Discrete Geometry and Topological Combinatorics group of Freie Universität Berlin, organized by and for PhD and Masters students. We provide a supportive, friendly place for students to give talks on their current research or topics they are interested in. The environment also facilitates opportunities for students to practice speaking.
@@ -67,6 +68,7 @@ Topics of the talks vary depending on the interests of the speaker, mostly in th
 The seminar happens in person in the seminar room of the Villa
 (Arnimallee 2). If you are interested in joining, feel free to subscribe to our
 [mailing list](https://lists.fu-berlin.de/listinfo/villastudentseminar).
+-->
 
 ### Organization
 
@@ -91,7 +93,7 @@ The seminar happens in person in the seminar room of the Villa
     <td>
         <div class="event">
             <a href="https://sites.google.com/view/pklp2025">
-                Positivity in K-Theory and Lattice Points</a>,
+                Summer School Positivity in K-Theory and Lattice Points</a>,
             <span class="event-university">EPFL</span>
             <span class="event-city">Lausanne</span>
         </div>
@@ -156,6 +158,26 @@ The seminar happens in person in the seminar room of the Villa
 <tr>
     <td>2026</td>
     <td>
+        <div class="event">
+            <a href="https://sites.google.com/view/rsrag2">
+            Research School in Real Algebraic Geometry</a>,
+            Trieste
+        </div>
+        <div class="event">
+            <a href="https://sites.google.com/view/gsmaac/">
+            Graduate Student Meeting in Applied Algebra and Combinatorics</a>,
+            Bristol
+        </div>
+        <div class="event">
+            <a href="https://sites.google.com/view/trolocsym/">
+            Tropical Geometry, Moduli Spaces and Locally Symmetric Varieties</a>,
+            Bielefeld
+        </div>
+        <div class="event">
+            <a href="https://sites.google.com/view/algebraic-metric-integral-geom/school">
+                Algebraic aspects of Metric and Integral Geometry</a>,
+            Lausanne
+        </div>
         <div class="event">
             <a href="https://mathconf.eu/adtg-2026/">
                 Developments in Discrete, Algorithmic and Tropical Geometry</a>,
