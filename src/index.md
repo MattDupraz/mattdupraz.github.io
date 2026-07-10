@@ -105,6 +105,36 @@ The seminar happens in person in the seminar room of the Villa
 <table class="event-list">
 <tr>
     <td>
+        Apr 20<br>
+        2026
+    </td>
+    <td>
+        <div class="event">
+            <a href="https://www.bristol.ac.uk/maths/events/2026/7th-graduate-student-meeting-in-applied-algebra-and-combinatorics.html">
+                GSM Applied Algebra and Combinatorics</a>,
+            <span class="event-university">University of Bristol</span>
+        </div>
+        <span class="talk-title">A Riemann-Roch Theorem for Frobenius quotients (short talk)</span>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        Mar 17<br>
+        2025
+    </td>
+    <td>
+        <div class="event">
+            <a href="https://sites.google.com/view/trolocsym/">
+                Tropical Geometry, Moduli Spaces and Locally Symmetric Varieties</a>,
+            <span class="event-university">Bielefeld University</span>
+        </div>
+        <span class="talk-title">A Riemann-Roch theorem for quotients of shift and differential operator algebras (short talk)</span>
+    </td>
+</tr>
+
+<tr>
+    <td>
         Apr 29<br>
         2025
     </td>
@@ -158,6 +188,11 @@ The seminar happens in person in the seminar room of the Villa
 <tr>
     <td>2026</td>
     <td>
+        <div class="event">
+            <a href="https://fpsac.org/confs/fpsac-2026/">
+            FPSAC 2026</a>,
+            Seattle
+        </div>
         <div class="event">
             <a href="https://sites.google.com/view/rsrag2">
             Research School in Real Algebraic Geometry</a>,
