@@ -39,14 +39,19 @@ polytopes and objects from algebraic geometry.
 </h2>
 
 ### Preprints
+
+- [A Riemann-Roch theorem for Frobenius quotients](https://arxiv.org/abs/2607.26176), with A. Gross and L. Monin
+
 - [Tropical linear series and matroids](https://arxiv.org/abs/2508.20062), 
     with C.-W. Chang, H. Iriarte, D. Jensen,
     D. Karp, S. Payne, J. Wang
 
 ### Master's thesis
+
 - [Tropical linear systems and the realizability problem](https://arxiv.org/abs/2506.21268),
     Master’s thesis, Ecole Polytechnique
     Federale de Lausanne, 2024 
+
 </article>
 
 
