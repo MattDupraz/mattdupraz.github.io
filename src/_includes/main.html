@@ -13,7 +13,11 @@
     </head>
 
     <body>
-        <aside id="left-column">
+        <main id="content">
+            {{ content }}
+        </main>
+
+        <aside id="sidebar">
             <article id="personal-info">
                 <div class="deindent">
                     <a href="assets/images/portrait.jpg"
@@ -79,9 +83,5 @@
                 </div>
             </div>
         </aside>
-
-        <main id="right-column">
-            {{ content }}
-        </main>
     </body>
 </html>
