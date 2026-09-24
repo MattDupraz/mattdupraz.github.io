@@ -200,6 +200,10 @@ a:hover {
     gap: 10px;
 }
 
+.links-images + .links-images {
+    margin-top: 10px;
+}
+
 .link-image {
     flex: 1 1 0;
     text-align: center;
