@@ -86,7 +86,7 @@ Queen Mary University of London for a research stay.
 <tr>
     <td>
         <span class="event-date">May 4-8</span>
-        <span class="event-year">2025</span>
+        <span class="event-year">2026</span>
     </td>
     <td>
         <div class="event">
