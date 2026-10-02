@@ -38,13 +38,13 @@ polytopes and objects from algebraic geometry.
     Research
 </h2>
 
-### Preprints
+### Publications and Preprints
 
-- [A Riemann-Roch theorem for Frobenius quotients](https://arxiv.org/abs/2607.26176), with A. Gross and L. Monin
+- [A Riemann-Roch theorem for Frobenius quotients](https://arxiv.org/abs/2607.26176), with A. Gross and L. Monin, preprint
 
 - [Tropical linear series and matroids](https://arxiv.org/abs/2508.20062), 
     with C.-W. Chang, H. Iriarte, D. Jensen,
-    D. Karp, S. Payne, J. Wang
+    D. Karp, S. Payne, J. Wang, to appear in Trans. Amer. Math. Soc.
 
 ### Master's thesis
 
@@ -126,6 +126,26 @@ Queen Mary University of London for a research stay.
         <span class="talk-title">A Riemann-Roch Theorem for Frobenius quotients</span>
     </td>
 </tr>
+<tr>
+    <td>
+        Feb 12<br>
+        2025
+    </td>
+    <td>
+        <div class="event">
+            <a href="https://sites.google.com/view/sfsuagc">
+                Algebra, Geometry, and Combinatorics Seminar</a>,
+            <span class="event-university">
+                San Francisco State University
+            </span>
+        </div> 
+        <span class="talk-title">Tropical Linear Systems</span>
+    </td>
+</tr>
+</table>
+
+### Contributed talks
+<table class="event-list">
 
 <tr>
     <td>
@@ -145,7 +165,7 @@ Queen Mary University of London for a research stay.
 <tr>
     <td>
         Mar 17<br>
-        2025
+        2026
     </td>
     <td>
         <div class="event">
@@ -188,24 +208,37 @@ Queen Mary University of London for a research stay.
     </td>
 </tr>
 
+</table>
+
+### Research visits
+<table class="event-list">
 <tr>
     <td>
-        Feb 12<br>
+        Feb<br>
         2025
     </td>
     <td>
         <div class="event">
-            <a href="https://sites.google.com/view/sfsuagc">
-                Algebra, Geometry, and Combinatorics Seminar</a>,
-            <span class="event-university">
-                San Francisco State University
-            </span>
-        </div> 
-        <span class="talk-title">Tropical Linear Systems</span>
+            <span class="event-university">Queen Mary University of London</span>
+        </div>
+        Two month research stay, hosted by <i>Alex Fink</i>
     </td>
 </tr>
-</table>
 
+<tr>
+    <td>
+        Feb<br>
+        2025
+    </td>
+    <td>
+        <div class="event">
+            <span class="event-university">San Francisco State University</span>
+        </div>
+        One week research visit, hosted by <i>Dustin Ross</i>
+    </td>
+</tr>
+
+</table>
 
 ### Attended conferences
 <table class="event-list">
