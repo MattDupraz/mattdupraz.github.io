@@ -1,0 +1,27 @@
+{%- comment -%}
+    Rendered inside Markdown: the output must not contain blank lines,
+    or markdown-it ends the HTML block and turns the rest into a code block.
+{%- endcomment -%}
+<table class="event-list">
+{%- for e in items %}
+<tr>
+    <td>
+        {%- if e.date %}
+        {{ e.date }}<br>
+        {%- endif %}
+        {{ e.year }}
+    </td>
+    <td>
+        {% render "_event.html", e: e -%}
+        {%- if e.title -%}
+        <span class="talk-title">{{ e.title }}</span>
+        {%- if e.short %} (short talk){% endif %}
+        {%- endif -%}
+        {%- if e.description -%}
+        {{ e.description }}
+        {%- if e.host %}, hosted by <i>{{ e.host }}</i>{% endif %}
+        {%- endif -%}
+    </td>
+</tr>
+{%- endfor %}
+</table>

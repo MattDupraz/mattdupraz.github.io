@@ -1,0 +1,16 @@
+[
+  {
+    "date": "Feb-Mar",
+    "year": 2027,
+    "university": "Queen Mary University of London",
+    "description": "Two month research stay",
+    "host": "Alex Fink"
+  },
+  {
+    "date": "Feb",
+    "year": 2025,
+    "university": "San Francisco State University",
+    "description": "One week research visit",
+    "host": "Dustin Ross"
+  }
+]

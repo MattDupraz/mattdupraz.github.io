@@ -1,0 +1,16 @@
+{%- comment -%}
+    Rendered inside Markdown: the output must not contain blank lines,
+    or markdown-it ends the HTML block and turns the rest into a code block.
+{%- endcomment -%}
+<table class="event-list">
+{%- for group in items %}
+<tr>
+    <td>{{ group.year }}</td>
+    <td>
+        {%- for e in group.events -%}
+        {% render "_event.html", e: e %}
+        {%- endfor -%}
+    </td>
+</tr>
+{%- endfor %}
+</table>

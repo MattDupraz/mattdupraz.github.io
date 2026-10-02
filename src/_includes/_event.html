@@ -1,0 +1,14 @@
+<div class="event">
+{%- if e.event %}
+    {% if e.url %}<a href="{{ e.url }}">{{ e.event }}</a>{% else %}<b>{{ e.event }}</b>{% endif %}
+    {%- if e.university or e.city %},{% endif %}
+    {%- if e.university %}
+    <span class="event-university">{{ e.university }}</span>
+    {%- endif %}
+{%- else %}
+    <b class="event-university">{{ e.university }}</b>
+{%- endif %}
+{%- if e.city %}
+    <span class="event-city">{{ e.city }}</span>
+{%- endif %}
+</div>
