@@ -3,7 +3,6 @@ const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
-    eleventyConfig.addPassthroughCopy('src/.nojekyll');
 
     const md = markdownIt({
         html: true,
@@ -15,7 +14,7 @@ module.exports = function (eleventyConfig) {
     return { 
         dir: {
             input: "src",
-            output: "docs"
+            output: "_site"
         }
     }
 }
