@@ -75,10 +75,35 @@ The seminar happens in person in the seminar room of the Villa
 [mailing list](https://lists.fu-berlin.de/listinfo/villastudentseminar).
 -->
 
-### Research stays
+### Research visits
+<table class="event-list">
+<tr>
+    <td>
+        Feb-Mar<br>
+        2027
+    </td>
+    <td>
+        <div class="event">
+            <b class="event-university">Queen Mary University of London</b>
+        </div>
+        Two month research stay, hosted by <i>Alex Fink</i>
+    </td>
+</tr>
 
-From February 1st to March 26th 2027, I will be visiting
-Queen Mary University of London for a research stay.
+<tr>
+    <td>
+        Feb<br>
+        2025
+    </td>
+    <td>
+        <div class="event">
+            <b class="event-university">San Francisco State University</b>
+        </div>
+        One week research visit, hosted by <i>Dustin Ross</i>
+    </td>
+</tr>
+
+</table>
 
 ### Organization
 
@@ -210,35 +235,6 @@ Queen Mary University of London for a research stay.
 
 </table>
 
-### Research visits
-<table class="event-list">
-<tr>
-    <td>
-        Feb<br>
-        2025
-    </td>
-    <td>
-        <div class="event">
-            <span class="event-university">Queen Mary University of London</span>
-        </div>
-        Two month research stay, hosted by <i>Alex Fink</i>
-    </td>
-</tr>
-
-<tr>
-    <td>
-        Feb<br>
-        2025
-    </td>
-    <td>
-        <div class="event">
-            <span class="event-university">San Francisco State University</span>
-        </div>
-        One week research visit, hosted by <i>Dustin Ross</i>
-    </td>
-</tr>
-
-</table>
 
 ### Attended conferences
 <table class="event-list">
