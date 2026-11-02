@@ -46,7 +46,7 @@ polytopes and objects from algebraic geometry.
 
 {%- for p in publications %}
 
-- [{{ p.title | plain }}]({{ p.url }}), with {{ p.coauthors | plain }}, {{ p.status | plain }}
+- [{{ p.title | plain }}](https://arxiv.org/abs/{{ p.arxiv }}), with {{ p.coauthors | plain }}, {{ p.status | plain }}
 {%- endfor %}
 
 ### Master's thesis

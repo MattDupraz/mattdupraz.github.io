@@ -16,6 +16,7 @@
 // ~ is a non-breaking space ("J.~Wang") and quotes are curled. Avoid other
 // markup characters there (# @ * _ < `): the website shows the same strings
 // as plain text (see the plain filter in eleventy.config.js).
+#let markup(s) = eval(s, mode: "markup")
 
 // ---- Style -----------------------------------------------------------------
 
@@ -90,16 +91,12 @@
   if start-date(e) > datetime.today() [#shown \ (upcoming)] else [#shown]
 }
 
-// ", arXiv: 2508.20062" for arXiv links, ", <url>" for others, or nothing.
-#let pub-link(p) = {
-  if "url" not in p { return }
-  if p.url.contains("arxiv.org/abs/") [, arXiv: #link(p.url, raw(p.url.split("/").last()))]
-  else [, #link(p.url, raw(p.url))]
-}
+// "arXiv: 2508.20062", linking to the abstract page.
+#let arxiv(id) = [arXiv: #link("https://arxiv.org/abs/" + id, raw(id))]
 
 #let talk(t) = entry(cv-date(t))[
-  #strong(eval(t.event, mode: "markup")), #emph(eval(t.university, mode: "markup")) \
-  Title: #emph(eval(t.title, mode: "markup"))#if t.at("short", default: false) [ (short talk)]
+  #strong(markup(t.event)), #emph(markup(t.university)) \
+  Title: #emph(markup(t.title))#if t.at("short", default: false) [ (short talk)]
 ]
 
 // ---- Header ----------------------------------------------------------------
@@ -137,7 +134,7 @@
   *M.Sc. Mathematics* (with minor in Computer Science), _EPFL_, Lausanne \
   Obtained the _EPFL Master Excellence Fellowship_ \
   Thesis: _Tropical linear systems and the realizability problem_,
-  arXiv: #link("https://arxiv.org/abs/2506.21268")[`2506.21268`] \
+  #arxiv("2506.21268") \
   Advisor: _Prof. Francesca Carocci_
 ]
 
@@ -150,7 +147,7 @@
 = Publications and Preprints
 
 #for p in publications [
-  - #strong(eval(p.title, mode: "markup")), with #eval(p.coauthors, mode: "markup"), #eval(p.status, mode: "markup")#pub-link(p).
+  - #strong(markup(p.title)), with #markup(p.coauthors), #markup(p.status), #arxiv(p.arxiv).
 ]
 
 // ---- Talks (from _data/invitedTalks.json, _data/contributedTalks.json) -----
@@ -169,8 +166,8 @@
 
 #for v in visits {
   entry(cv-date(v))[
-    #strong(eval(v.university, mode: "markup"))#if "city" in v [, #eval(v.city, mode: "markup")] \
-    #eval(v.description, mode: "markup")#if "host" in v [, hosted by #emph(eval(v.host, mode: "markup"))]
+    #strong(markup(v.university))#if "city" in v [, #markup(v.city)] \
+    #markup(v.description)#if "host" in v [, hosted by #emph(markup(v.host))]
   ]
 }
 
@@ -180,9 +177,9 @@
 
 #for o in organization {
   entry(cv-date(o, month-only: true))[
-    #strong(eval(o.event, mode: "markup")) \
-    #if "role" in o [#eval(o.role, mode: "markup"), ]#emph(eval(o.university, mode: "markup"))#if "city" in o [, #eval(o.city, mode: "markup")]
-    #if "details" in o [\ #eval(o.details, mode: "markup")]
+    #strong(markup(o.event)) \
+    #if "role" in o [#markup(o.role), ]#emph(markup(o.university))#if "city" in o [, #markup(o.city)]
+    #if "details" in o [\ #markup(o.details)]
   ]
 }
 
@@ -235,8 +232,8 @@
 
 #for group in conferences {
   let lines = group.events.filter(c => c.at("cv", default: true)).map(c => {
-    let name = strong(eval(c.event, mode: "markup"))
-    [#if "url" in c { link(c.url, name) } else { name }, #eval(c.city, mode: "markup")]
+    let name = strong(markup(c.event))
+    [#if "url" in c { link(c.url, name) } else { name }, #markup(c.city)]
   })
   year-entry(str(group.year), lines.join(linebreak()), breakable: true)
 }
