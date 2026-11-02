@@ -5,8 +5,7 @@
     "event": "GSM Applied Algebra and Combinatorics",
     "url": "https://www.bristol.ac.uk/maths/events/2026/7th-graduate-student-meeting-in-applied-algebra-and-combinatorics.html",
     "university": "University of Bristol",
-    "title": "A Riemann-Roch Theorem for Frobenius quotients",
-    "short": true
+    "title": "A Riemann–Roch theorem for Frobenius quotients"
   },
   {
     "date": "Mar 17",
@@ -14,7 +13,7 @@
     "event": "Tropical Geometry, Moduli Spaces and Locally Symmetric Varieties",
     "url": "https://sites.google.com/view/trolocsym/",
     "university": "Bielefeld University",
-    "title": "A Riemann-Roch theorem for quotients of shift and differential operator algebras",
+    "title": "A Riemann–Roch theorem for Frobenius quotients",
     "short": true
   },
   {
@@ -31,7 +30,7 @@
     "event": "Combinatorial Algebraic Geometry: Highlighting Underrepresented Genders",
     "url": "https://sites.google.com/view/coalggeohug/home",
     "university": "Goethe Universität Frankfurt am Main",
-    "title": "Lattice counts and K-theory",
+    "title": "Lattice counts and $K$-theory",
     "short": true
   }
 ]

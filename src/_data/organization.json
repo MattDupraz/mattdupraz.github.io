@@ -4,14 +4,18 @@
     "year": 2026,
     "event": "Young Researchers Conference on Combinatorial Synergies",
     "url": "https://mathconf.eu/yrccs-2026",
-    "university": "FU Berlin"
+    "university": "FU Berlin",
+    "role": "Local organizer",
+    "details": "Handled logistics: venue, website, registrations, catering, budget"
   },
   {
     "date": "Aug 11-15",
     "year": 2025,
-    "event": "Summer School Positivity in K-Theory and Lattice Points",
+    "event": "Summer School: Positivity in $K$-Theory and Lattice Points",
     "url": "https://sites.google.com/view/pklp2025",
-    "university": "EPFL",
-    "city": "Lausanne"
+    "university": "Bernoulli Center, EPFL",
+    "city": "Lausanne",
+    "role": "Co-organizer",
+    "details": "Main contact point with participants; managed website and social program"
   }
 ]

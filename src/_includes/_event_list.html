@@ -14,11 +14,11 @@
     <td>
         {% render "_event.html", e: e -%}
         {%- if e.title -%}
-        <span class="talk-title">{{ e.title }}</span>
+        <span class="talk-title">{{ e.title | plain }}</span>
         {%- if e.short %} (short talk){% endif %}
         {%- endif -%}
         {%- if e.description -%}
-        {{ e.description }}
+        {{ e.description | plain }}
         {%- if e.host %}, hosted by <i>{{ e.host }}</i>{% endif %}
         {%- endif -%}
     </td>

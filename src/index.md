@@ -27,6 +27,10 @@ some computations in these rings.
 More generally, I am interested in tropical geometry and algebraic combinatorics -
 I enjoy studying interactions between objects such as matroids, hyperplane arrangements,
 polytopes and objects from algebraic geometry.
+
+### I am on the job market for postdoctoral positions starting in Fall 2027
+
+[▸ CV (PDF)](CV.pdf)
 </article>
 
 
@@ -42,7 +46,7 @@ polytopes and objects from algebraic geometry.
 
 {%- for p in publications %}
 
-- [{{ p.title }}]({{ p.url }}), with {{ p.coauthors }}, {{ p.status }}
+- [{{ p.title | plain }}]({{ p.url }}), with {{ p.coauthors | plain }}, {{ p.status | plain }}
 {%- endfor %}
 
 ### Master's thesis

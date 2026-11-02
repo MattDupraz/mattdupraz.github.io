@@ -27,6 +27,11 @@ jobs:
 
       - run: npm ci
 
+      # Needed to compile the CV (src/cv.typ) into CV.pdf.
+      - uses: typst-community/setup-typst@v5
+        with:
+          typst-version: 0.15.1
+
       - name: Build with Eleventy
         run: npx @11ty/eleventy
 
