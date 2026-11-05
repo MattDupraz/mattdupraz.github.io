@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Matt Dupraz</title>
+        <title>{{ personal.name }}</title>
 
         <link rel="preload" href="assets/sprites/icons.png" as="image" type="image/png">
         <link rel="preload" href="assets/sprites/neko.png" as="image" type="image/png">
@@ -9,7 +9,7 @@
         <link rel="icon" href="data:;base64,=">
 
         <meta charset="utf-8">
-        <meta name="author" content="Matt Dupraz">
+        <meta name="author" content="{{ personal.name }}">
     </head>
 
     <body>
@@ -23,15 +23,20 @@
                              src="assets/images/portrait_small.jpg"/>
                     </a>
                 </div>
-                <h1>Matt Dupraz</h1>
-                <p>PhD candidate at FU Berlin</p>
-                <a href="mailto:matthew.dupraz@fu-berlin.de" class="link-social">
+                <h1>{{ personal.name }}</h1>
+                <p>{{ personal.position }}</p>
+                <a href="mailto:{{ personal.email }}" class="link-social">
                     <span class="icon email"></span>
-                    matthew.dupraz@fu-berlin.de
+                    {{ personal.email }}
                 </a>
-                <a class="link-social" href="https://github.com/MattDupraz">
+                <a class="link-social"
+                   href="https://www.openstreetmap.org/search?query={{ personal.address | url_encode }}">
+                    <span class="icon address"></span>
+                    {{ personal.address }}
+                </a>
+                <a class="link-social" href="https://github.com/{{ personal.github }}">
                     <span class="icon github"></span>
-                    @MattDupraz
+                    @{{ personal.github }}
                 </a>
             </article>
 

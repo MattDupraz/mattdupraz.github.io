@@ -11,6 +11,7 @@
 #let visits = json("_data/visits.json")
 #let organization = json("_data/organization.json")
 #let conferences = json("_data/conferences.json")
+#let personal = json("_data/personal.json")
 
 // Text from _data is evaluated as Typst markup, so "$K$-theory" gives math,
 // ~ is a non-breaking space ("J.~Wang") and quotes are curled. Avoid other
@@ -23,7 +24,7 @@
 #let sans = "Cabin"
 #let accent = rgb(146, 6, 50) // icons and bullets
 
-#set document(title: "Matthew Dupraz – CV", author: "Matthew Dupraz")
+#set document(title: personal.fullName + " – CV", author: personal.fullName)
 #set page(paper: "a4", margin: (x: 2.25cm, y: 2.2cm), numbering: "1")
 #set text(font: "Cochineal", size: 11pt, lang: "en", number-type: "old-style")
 #set par(leading: 0.55em)
@@ -105,16 +106,16 @@
   columns: (1fr, auto),
   stack(
     spacing: 0.75em,
-    text(font: sans, weight: "bold", size: 20pt)[Matthew Dupraz],
-    text(font: sans, style: "italic", fill: luma(128), size: 11.5pt)[Ph.D. student at FU Berlin],
+    text(font: sans, weight: "bold", size: 20pt, personal.fullName),
+    text(font: sans, style: "italic", fill: luma(128), size: 11.5pt, personal.position),
   ),
   grid(
     columns: 2, column-gutter: 0.35em, row-gutter: 0.7em, align: (right, center),
-    link("mailto:matthew.dupraz@fu-berlin.de", raw("matthew.dupraz@fu-berlin.de")),
+    link("mailto:" + personal.email, raw(personal.email)),
     icon("\u{f0e0}", solid: false),
-    raw("Arnimallee 3, 14195 Berlin"),
+    raw(personal.address),
     icon("\u{f3c5}"),
-    link("https://mattdupraz.github.io/", raw("https://mattdupraz.github.io/")),
+    link(personal.website, raw(personal.website)),
     icon("\u{f0ac}"),
   ),
 )
@@ -124,14 +125,14 @@
 = Education
 
 #entry[2024 -- Sep 2027 \ (expected)][
-  *Ph.D. Mathematics*, _Freie Universität_, Berlin \
+  *PhD Mathematics*, _Freie Universität_, Berlin \
   DFG project _"$K$-theory and normal complexes"_
   (SPP 2458 _"Combinatorial Synergies"_) \
   Advisors: _Prof. Christian Haase and Dr. Leonid Monin (EPFL)_
 ]
 
 #entry[2022 -- 2024][
-  *M.Sc. Mathematics* (with minor in Computer Science), _EPFL_, Lausanne \
+  *MSc Mathematics* (with minor in Computer Science), _EPFL_, Lausanne \
   Obtained the _EPFL Master Excellence Fellowship_ \
   Thesis: _Tropical linear systems and the realizability problem_,
   #arxiv("2506.21268") \
@@ -139,7 +140,7 @@
 ]
 
 #entry[2019 -- 2022][
-  *B.Sc. Mathematics*, _EPFL_, Lausanne
+  *BSc Mathematics*, _EPFL_, Lausanne
 ]
 
 // ---- Publications (from _data/publications.json) ---------------------------

@@ -49,6 +49,10 @@
     background-position: -64px -32px;
 }
 
+.address {
+    background-position: -96px -32px;
+}
+
 
 body {
     background-color: var(--bg);
