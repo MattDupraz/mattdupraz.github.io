@@ -68,28 +68,39 @@
 // An entry whose date is just a year, with a narrower date column.
 #let year-entry = entry.with(date-width: 2em)
 
-#let months = ("jan", "feb", "mar", "apr", "may", "jun",
-               "jul", "aug", "sep", "oct", "nov", "dec")
-
-// Start of an entry's date ("Apr 20", "Feb-Mar", "May 4-8") in its year.
-// Without a day ("Feb"), the first of the month.
-#let start-date(e) = {
-  let day = e.date.find(regex("\d+"))
-  datetime(
-    year: e.year,
-    month: months.position(m => lower(e.date).starts-with(m)) + 1,
-    day: if day == none { 1 } else { int(day) },
-  )
+// An ISO date from _data: "2026-05-04", or "2027-02" for a whole month.
+// Returns the date (the 1st for a month) and whether it has a day.
+// The website parses the same format (eventDate in eleventy.config.js).
+#let parse-date(s) = {
+  assert(s.match(regex("^\d{4}-\d{2}(-\d{2})?$")) != none,
+    message: "invalid date \"" + s + "\": expected YYYY-MM-DD or YYYY-MM")
+  let p = s.split("-").map(int)
+  (datetime(year: p.at(0), month: p.at(1), day: p.at(2, default: 1)), p.len() == 3)
 }
 
-// "Apr 20" + 2026 -> "Apr 20, 2026"; "Feb-Mar" + 2027 -> "Feb–Mar 2027".
-// With month-only, "May 4-8" + 2026 -> "May 2026".
-// Entries after the build day get a second line "(upcoming)".
+// An entry's "date": one ISO date, or [start, end].
+// "2026-11-10" -> "Nov 10, 2026"; ["2026-05-04", "2026-05-08"] -> "May 4–8, 2026";
+// ["2027-02", "2027-03"] -> "Feb–Mar 2027". With month-only, days are left
+// out: ["2026-05-04", "2026-05-08"] -> "May 2026".
+// Entries starting after the build day get a second line "(upcoming)".
 #let cv-date(e, month-only: false) = {
-  let date = if month-only { e.date.split(" ").first() } else { e.date }
-  let sep = if date.ends-with(regex("\d")) { ", " } else { " " }
-  let shown = date.replace("-", "–") + sep + str(e.year)
-  if start-date(e) > datetime.today() [#shown \ (upcoming)] else [#shown]
+  let (a, b) = if type(e.date) == array { e.date } else { (e.date, e.date) }
+  let (start, has-day) = parse-date(a)
+  let (end, _) = parse-date(b)
+  let days = has-day and not month-only
+  let day = "[day padding:none]"
+  let md = if days { "[month repr:short] " + day } else { "[month repr:short]" }
+  let y = if days { ", [year]" } else { " [year]" }
+  let shown = if start.year() != end.year() {
+    start.display(md + y) + "–" + end.display(md + y)
+  } else if start.display(md) == end.display(md) {
+    start.display(md + y)
+  } else if days and start.month() == end.month() {
+    start.display(md) + "–" + end.display(day + y)
+  } else {
+    start.display(md) + "–" + end.display(md + y)
+  }
+  if start > datetime.today() [#shown \ (upcoming)] else [#shown]
 }
 
 // "arXiv: 2508.20062", linking to the abstract page.

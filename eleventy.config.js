@@ -14,6 +14,34 @@ function plain(value) {
         escaped ?? (match === "~" ? "\u00a0" : ""));
 }
 
+// Dates in _data are ISO: "2026-05-04", or "2027-02" for a whole month,
+// represented by its first day (src/cv.typ parses the same format).
+function parseDate(s) {
+    const hasDay = s.length > 7;
+    const date = hasDay
+        ? Temporal.PlainDate.from(s)
+        : Temporal.PlainYearMonth.from(s).toPlainDate({ day: 1 });
+    return { date, hasDay };
+}
+
+// An event's "date" (one ISO date, or [start, end]) for the narrow date
+// column: "May 4\u20138<br>2026", "Feb\u2013Mar<br>2027", or the full range when it
+// spans two years ("Dec 30, 2026\u2013Jan 2, 2027").
+function eventDate(value) {
+    const [a, b = a] = [].concat(value);
+    const start = parseDate(a), end = parseDate(b);
+    const year = start.date.year;
+    const sameYear = year === end.date.year;
+    const format = new Intl.DateTimeFormat("en", {
+        month: "short",
+        ...(start.hasDay && { day: "numeric" }),
+        ...(!sameYear && { year: "numeric" }),
+    });
+    // Intl puts thin spaces around the dash; the CV has none.
+    const shown = format.formatRange(start.date, end.date).replace(/\s*\u2013\s*/, "\u2013");
+    return sameYear ? `${shown}<br>${year}` : shown;
+}
+
 // The CV: src/cv.typ reads src/_data and is compiled to CV.pdf after each
 // build, using only the fonts in fonts/ (plus Typst's built-in ones), so the
 // result is the same everywhere. Set TYPST to use a typst binary that is not
@@ -43,6 +71,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
 
     eleventyConfig.addFilter("plain", plain);
+    eleventyConfig.addFilter("eventDate", eventDate);
 
     eleventyConfig.addWatchTarget(CV_SOURCE);
     eleventyConfig.addWatchTarget(CV_FONTS);

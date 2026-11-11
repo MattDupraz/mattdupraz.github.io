@@ -1,7 +1,6 @@
 [
   {
-    "date": "May 4-8",
-    "year": 2026,
+    "date": ["2026-05-04", "2026-05-08"],
     "event": "Young Researchers Conference on Combinatorial Synergies",
     "url": "https://mathconf.eu/yrccs-2026",
     "university": "FU Berlin",
@@ -9,8 +8,7 @@
     "details": "Handled logistics: venue, website, registrations, catering, budget"
   },
   {
-    "date": "Aug 11-15",
-    "year": 2025,
+    "date": ["2025-08-11", "2025-08-15"],
     "event": "Summer School: Positivity in $K$-Theory and Lattice Points",
     "url": "https://sites.google.com/view/pklp2025",
     "university": "Bernoulli Center, EPFL",

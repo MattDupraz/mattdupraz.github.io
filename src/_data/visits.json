@@ -1,15 +1,13 @@
 [
   {
-    "date": "Feb-Mar",
-    "year": 2027,
+    "date": ["2027-02", "2027-03"],
     "university": "Queen Mary University of London",
     "city": "London",
     "description": "Two-month research stay",
     "host": "Alex Fink"
   },
   {
-    "date": "Feb",
-    "year": 2025,
+    "date": "2025-02",
     "university": "San Francisco State University",
     "city": "San Francisco",
     "description": "One-week research visit",
